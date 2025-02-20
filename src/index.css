@@ -1,3 +1,129 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@font-face {
+  font-family: sans-light;
+  /* 300 */
+  src: url("./fonts/DMSans-Light.ttf");
+}
+@font-face {
+  font-family: sans-regular;
+  /* 400 */
+  src: url("./fonts/DMSans-Regular.ttf");
+}
+@font-face {
+  font-family: sans-medium;
+  /* 500 */
+  src: url("./fonts/DMSans-Medium.ttf");
+}
+@font-face {
+  font-family: sans-semibold;
+  /* 600 */
+  src: url("./fonts/DMSans-SemiBold.ttf");
+}
+@font-face {
+  font-family: sans-bold;
+  /* 700 */
+  src: url("./fonts/DMSans-Bold.ttf");
+}
+@font-face {
+  font-family: sans-extra-bold;
+  /* 900 */
+  src: url("./fonts/DMSans-ExtraBold.ttf");
+}
+
+body {
+  scroll-behavior: smooth !important;
+  margin: 0;
+}
+
+.slick-arrow {
+  display: none !important;
+}
+
+.vertical-carousel {
+  width: 200px; /* Adjust as needed */
+  height: 300px; /* Adjust as needed */
+  overflow: hidden;
+  position: relative;
+}
+
+.carousel-wrapper {
+  animation: verticalScroll 3s linear infinite; /* Adjust duration */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.carousel-slide {
+  height: 100%; /* Or a specific height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes verticalScroll {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(-100%);
+  } /* Adjust percentage based on number of slides */
+}
+
+.carousel-slide img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.slick-slide {
+  @apply flex items-center justify-center;
+}
+
+.slick-slide > div {
+  @apply w-[200px]; /* Adjust this width as needed */
+}
+
+.slick-track {
+  /* Remove margin-top from here */
+}
+
+.slider-overlay-top,
+.slider-overlay-bottom {
+  @apply absolute left-0 w-full bg-white;
+  height: 100px; /* Adjust this height as needed */
+  z-index: 10;
+  pointer-events: none;
+}
+
+.slider-overlay-top {
+  top: 0;
+  background: linear-gradient(to bottom, white, transparent);
+}
+
+.slider-overlay-bottom {
+  bottom: 0;
+  background: linear-gradient(to top, white, transparent);
+}
+
+/* Key Change: Add padding to the Slider container */
+.slick-slider {
+  padding-top: 60px; /* Adjust to match overlay height */
+}
+
+@media (max-width: 768px) {
+  .slick-slider {
+    padding-top: 40px; /* Adjust for smaller screens */
+  }
+}
+
+
+.slick-slide {
+  width: fit-content !important;
+}
+
+.slick-slide > div {
+  width: fit-content !important;
+}
