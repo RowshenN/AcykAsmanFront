@@ -7,7 +7,7 @@ import map from "../images/contact-map.png";
 
 const Contact = () => {
   return (
-    <div className="w-full sm:bg-gradient-20-80 md:bg-gradient-top sm:pt-[150px] md:pt-[232px] mb-[326px]">
+    <div className="w-full sm:bg-gradient-20-80 md:bg-gradient-top sm:pt-[150px] md:pt-[232px] sm:mb-[100px] md:mb-[326px]">
       <div className="sm:w-[90%] md:w-[80%] mx-auto ">
         <p className="sm:text-[24px] md:text-[46px] font-[sans-medium] text-center sm:mb-[22px] md:mb-7 ">
           Habarlaşmak üçin
@@ -26,10 +26,7 @@ const Contact = () => {
               E-poçta
             </p>
             <p className="text-[16px] text-[#6A6A6A] font-[sans-semibold] mb-[9px]">
-              ygtybarly@atiyaclandyrys
-            </p>
-            <p className="text-[16px] text-[#6A6A6A] font-[sans-semibold]">
-              ygtybarly@info
+              info@ygtybarly.com.tm
             </p>
           </div>
 
@@ -60,7 +57,7 @@ const Contact = () => {
             </div>
             <p className="text-[18px] font-[sans-semibold] mb-[18px] ">Adres</p>
             <p className="text-[16px] w-[70%] text-center text-[#6A6A6A] font-[sans-semibold]">
-              Aşgabat şäheri, Bitaraplyk şaýoly köçesi 15 jaý
+              Aşgabat şäheri, Oguzhan köçe, 203 jaý
             </p>
           </div>
         </div>
@@ -151,11 +148,13 @@ const Contact = () => {
             </form>
 
             <div className="sm:w-full md:w-[55%]">
-              <img
-                src={map}
-                alt="map"
-                className="w-full object-cover rounded-[13px] sm:h-[390px] md:h-[586px] "
-              />
+              <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3147.7436104533795!2d58.3563821568845!3d37.913055108369996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3f70021313392d4b%3A0x65e645189fb34c6!2sGidrometeorologi%C3%BDa%20baradaky%20milli%20komiteti!5e0!3m2!1sen!2snl!4v1740078269591!5m2!1sen!2snl"
+                className="w-full rounded-[13px] sm:h-[390px] md:h-[586px] "
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>

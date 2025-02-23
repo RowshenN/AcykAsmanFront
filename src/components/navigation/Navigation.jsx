@@ -32,11 +32,11 @@ const Navigation = () => {
     <div
       style={
         isSticky
-          ? { position: "fixed", top: "0", maxWidth: "1590px" }
+          ? { position: "fixed", top: "0", maxWidth: "100%" }
           : { position: "absolute", top: "0px" }
       }
       className={`w-full transition-all py-[15px] ${
-        isSticky ? "bg-white shadow-xl z-50" : ""
+        isSticky ? "bg-white shadow-xl z-[10000]" : ""
       } nav_inner`}
     >
       <div className="w-[90%] mx-auto flex items-center sm:justify-around md:justify-between">
@@ -56,34 +56,54 @@ const Navigation = () => {
                     onClick={() => navigate("/")}
                     className="cursor-pointer font-[sans-regular]"
                   >
-                    Baş sahypa
+                    {dil === "tk"
+                      ? "Baş sahypa"
+                      : dil === "ru"
+                      ? "Главная"
+                      : "Home page"}
                   </p>
 
                   <a
-                    href="#services"
+                    href="/#services"
                     className="cursor-pointer font-[sans-regular]"
                   >
-                    Hyzmatlar
+                    {dil === "tk"
+                      ? "Hyzmatlar"
+                      : dil === "ru"
+                      ? "Сервис"
+                      : "Services"}
                   </a>
 
                   <a
-                    href="#about"
+                    href="/#about"
                     className="cursor-pointer font-[sans-regular]"
                   >
-                    Biz barada
+                    {dil === "tk"
+                      ? "Biz barada"
+                      : dil === "ru"
+                      ? "О нас"
+                      : "About us"}
                   </a>
                   <a
-                    href="#clients"
+                    href="/#clients"
                     className="cursor-pointer font-[sans-regular]"
                   >
-                    Müşderiler
+                    {dil === "tk"
+                      ? "Müşderiler"
+                      : dil === "ru"
+                      ? "Клиенты"
+                      : "Clients"}
                   </a>
 
                   <p
                     onClick={() => navigate("/contact")}
                     className="cursor-pointer font-[sans-regular]"
                   >
-                    Contact us
+                    {dil === "tk"
+                      ? "Habarlaşmak üçin"
+                      : dil === "ru"
+                      ? "Обращайтесь к нам"
+                      : "Contact us"}
                   </p>
                 </div>
               </div>
@@ -122,7 +142,7 @@ const Navigation = () => {
             />
             <div className="text-[#34C2AA] text-[14px] font-[sans-medium] relative">
               <p className="">
-                {dil === "tm" ? "TM" : dil === "ru" ? "RU" : "EN"}
+                {dil === "tk" ? "TM" : dil === "ru" ? "RU" : "EN"}
               </p>
               <div
                 onMouseLeave={() => setLang(false)}
@@ -133,7 +153,7 @@ const Navigation = () => {
               >
                 <p onClick={() => ChangeDil("en")}>EN</p>
                 <p onClick={() => ChangeDil("ru")}>RU</p>
-                <p onClick={() => ChangeDil("tm")}>TM</p>
+                <p onClick={() => ChangeDil("tk")}>TM</p>
               </div>
             </div>
           </div>
@@ -143,18 +163,34 @@ const Navigation = () => {
               onClick={() => navigate("/")}
               className="cursor-pointer font-[sans-regular]"
             >
-              Baş sahypa
+              {dil === "tk"
+                ? "Baş sahypa"
+                : dil === "ru"
+                ? "Главная"
+                : "Home page"}
             </p>
 
-            <a href="#services" className="cursor-pointer font-[sans-regular]">
-              Hyzmatlar
+            <a href="/#services" className="cursor-pointer font-[sans-regular]">
+              {dil === "tk"
+                ? "Hyzmatlar"
+                : dil === "ru"
+                ? "Сервис"
+                : "Services"}
             </a>
 
-            <a href="#about" className="cursor-pointer font-[sans-regular]">
-              Biz barada
+            <a href="/#about" className="cursor-pointer font-[sans-regular]">
+              {dil === "tk"
+                ? "Biz barada"
+                : dil === "ru"
+                ? "О нас"
+                : "About us"}
             </a>
-            <a href="#clients" className="cursor-pointer font-[sans-regular]">
-              Müşderiler
+            <a href="/#clients" className="cursor-pointer font-[sans-regular]">
+              {dil === "tk"
+                ? "Müşderiler"
+                : dil === "ru"
+                ? "Клиенты"
+                : "Clients"}
             </a>
           </div>
         </div>
@@ -167,7 +203,7 @@ const Navigation = () => {
             >
               <img src={globe} alt="globe" />
               <p className="font-[sans-medium] text-[14px] ">
-                {dil === "tm" ? "TM" : dil === "ru" ? "RU" : "EN"}
+                {dil === "tk" ? "TM" : dil === "ru" ? "RU" : "EN"}
               </p>
 
               <div
@@ -178,7 +214,7 @@ const Navigation = () => {
                 }
               >
                 <div
-                  onClick={() => ChangeDil("tm")}
+                  onClick={() => ChangeDil("tk")}
                   className="hover:text-black"
                 >
                   TM
@@ -204,11 +240,11 @@ const Navigation = () => {
             className="bg-[#34C2AA] w-fit flex items-center justify-center cursor-pointer rounded-[29px] px-[22px] py-[10px] text-white text-[14px] font-[sans-semibold] "
           >
             <p className="w-fit">
-              {dil === "tm"
+              {dil === "tk"
                 ? "Habarlaşmak üçin"
                 : dil === "ru"
-                ? "Dlya Kontakr"
-                : "Contact"}
+                ? "Обращайтесь к нам"
+                : "Contact us"}
             </p>
           </div>
         </div>

@@ -4,7 +4,7 @@ import SebedimContextProvider from "./context/Context";
 
 function App() {
   return (
-    <div className="max-w-[1590px] relative mx-auto">
+    <div className="max-w-full relative mx-auto">
       <SebedimContextProvider>
         <Router />
       </SebedimContextProvider>

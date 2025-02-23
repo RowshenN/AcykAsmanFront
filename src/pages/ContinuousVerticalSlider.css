@@ -1,0 +1,24 @@
+.continuous-vertical-slider-container {
+    width: fit-content; 
+    overflow: hidden;
+  }
+  
+  .continuous-vertical-slider {
+    animation: scroll-vertical linear infinite; /* Keyframe animation */
+    will-change: transform; /* Optimize for animation */
+  }
+  
+  .slider-item {
+    /* ... your item styles ... */
+    padding: 10px;
+    border-bottom: 1px solid #eee;
+  }
+  
+  @keyframes scroll-vertical {
+    0% {
+      transform: translateY(0);
+    }
+    100% {
+      transform: translateY(calc(-50%)); /* Move up by half the total height */
+    }
+  }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
 import surat from "../images/Group 1.png";
@@ -31,6 +31,8 @@ import ellipse from "../images/Ellipse 5.svg";
 import ellipse2 from "../images/Ellipse 8.svg";
 // import ellipse3 from "../images/Ellipse 10.svg";
 import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 import logo1 from "../images/clients/logo1.svg";
 import logo2 from "../images/clients/logo2.svg";
@@ -48,41 +50,47 @@ import logo13 from "../images/clients/logo13.svg";
 import logo14 from "../images/clients/logo14.svg";
 import logo15 from "../images/clients/logo15.svg";
 import logo16 from "../images/clients/logo16.svg";
+import { SebedimContext } from "../context/Context";
+import ContinuousVerticalSlider from "./ContinuousVerticalSlider";
 
 const Home = () => {
+  const { dil } = useContext(SebedimContext);
   const navigate = useNavigate();
 
-  // const navLinks = document.querySelectorAll(".navlink");
-  // navLinks.forEach((link) => {
-  //   link.addEventListener("click", function (event) {
-  //     event.preventDefault();
-
-  //     const targetId = this.getAttribute("href");
-  //     const targetElement = document.querySelector(targetId);
-
-  //     if (targetElement) {
-  //       targetElement.scrollIntoView({
-  //         behavior: "smooth",
-  //       });
-  //     }
-  //   });
-  // });
+  const logos = [
+    logo1,
+    logo2,
+    logo3,
+    logo4,
+    logo5,
+    logo6,
+    logo7,
+    logo8,
+    logo9,
+    logo10,
+    logo11,
+    logo12,
+    logo13,
+    logo14,
+    logo15,
+    logo16,
+  ];
 
   const settings = {
     autoplay: true,
     dots: false,
-    infinite: true,
+    infinite: false, // Crucial: Remove infinite
     slidesToShow: 2.5,
     slidesToScroll: 1,
     vertical: true,
     verticalSwiping: true,
     swipeToSlide: true,
-    autoplaySpeed: 1500,
-    speed: 1000,
     nextArrow: null,
     prevArrow: null,
+    pauseOnHover: false,
+    autoplaySpeed: 1000,
+    speed: 650,
   };
-
   const settings2 = {
     autoplay: true,
     dots: false,
@@ -92,11 +100,12 @@ const Home = () => {
     vertical: true,
     verticalSwiping: true,
     swipeToSlide: true,
-    autoplaySpeed: 1500,
-    speed: 1000,
     nextArrow: null,
     prevArrow: null,
     rtl: true,
+    pauseOnHover: false,
+    autoplaySpeed: 1000,
+    speed: 750,
   };
 
   return (
@@ -121,12 +130,18 @@ const Home = () => {
 
               <div className="pl-10 lg:block sm:hidden border-l border-black w-[80%]">
                 <p className="mb-6 text-[16px] font-[sans-regular] ">
-                  Lorem ipsum dolor sit amet consectetur. Dolor vitae ut sit ut
-                  mauris sociis tortor vel dignissim. Ullamcorper auctor non
-                  arcu proin urna.
+                  {dil === "tk"
+                    ? "Siziň we maşgalaňyz üçin iň ygtybarly ätiýaçlandyryş hyzmatlary! Biz bilen habarlaşyň – gelejekde garaşylmadyk ýagdaýlara taýýarlykly boluň!"
+                    : dil === "ru"
+                    ? "Самые надежные страховые решения для вас и вашей семьи! Свяжитесь с нами – будьте готовы к любым неожиданностям!"
+                    : "The most reliable insurance solutions for you and your family! Contact us today – be prepared for any unexpected events!"}
                 </p>
                 <div className="bg-[#34C2AA] font-[sans-semibold] w-fit rounded-[29px] px-[22px] py-[10px] text-white text-[14px] ">
-                  Habarlaşmak üçin
+                  {dil === "tk"
+                    ? "Habarlaşmak üçin"
+                    : dil === "ru"
+                    ? "Обращайтесь к нам"
+                    : "Contact us"}
                 </div>
               </div>
             </div>
@@ -189,7 +204,7 @@ const Home = () => {
                   gurluşyk maşynlar, özi hereket edýän mehanizmler we başgalar.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={car}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -211,7 +226,7 @@ const Home = () => {
                   niýetlenendir.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={drill}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -233,7 +248,7 @@ const Home = () => {
                   töwekgelçilikler, uly möçberli zyýanlara ýetirip biler.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={factory}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -255,7 +270,7 @@ const Home = () => {
                   üçin niýetlenendir.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={bateau}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -278,7 +293,7 @@ const Home = () => {
                   üçin fiziki we ýuridik şahslaryň öňündäki jogapkärçilik.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={business}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -299,7 +314,7 @@ const Home = () => {
                   jogapkärçiligini hünärmeniň işleýän edarasy çekýär.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={search}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -320,7 +335,7 @@ const Home = () => {
                   ätiýaçlandyryşyň bir görnüşi bolup durýar.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={delivery_big}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -342,7 +357,7 @@ const Home = () => {
                   ýaşaýyş jaýlaryndaky öýler degişlidir, 
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={house_yellow}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -364,7 +379,7 @@ const Home = () => {
                   wakanyň ýüze çykmak ähtimallygy;
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={rain}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -386,7 +401,7 @@ const Home = () => {
                   azaltmaga mümkinçilik berer.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={house_blue}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -407,7 +422,7 @@ const Home = () => {
                   şertnamasynyň barlygyny hökman göz öňüne tutarlar.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={cv_form}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -427,7 +442,7 @@ const Home = () => {
                   condimentum eget consequat pretium ut.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={insurance}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -451,7 +466,7 @@ const Home = () => {
                   ätiýaçlandyryş obýekti bolup durýar.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={team_work}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -475,7 +490,7 @@ const Home = () => {
                   hem-de GDA-nyň we Ýewropanyň beýleki ýurtlary girýär.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={delivery_small}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -496,7 +511,7 @@ const Home = () => {
                   görnüşidir.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={hurricane}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -520,7 +535,7 @@ const Home = () => {
                   bolup durýar.
                 </p>
               </div>
-              <div className="w-full flex items-center md:justify-start sm:justify-center">
+              <div className="w-full flex items-center justify-center">
                 <img
                   src={travel}
                   className="sm:w-[120px] md:w-[170px] sm:h-[120px] md:h-[170px] object-cover "
@@ -659,10 +674,18 @@ const Home = () => {
                 className="md:w-[46px] sm:w-[26px] object-cover "
               />
               <p className="sm:pt-5 md:mt-[35px] sm:mb-2 md:mb-[15px] text-[20px] font-[sans-semibold] ">
-                Ynamdar
+                {dil === "tk"
+                  ? "Ygtybarly"
+                  : dil === "ru"
+                  ? "Надежно"
+                  : "Reliable"}
               </p>
               <p className="sm:w-full md:w-[90%] text-[#6A6A6A] sm:text-[14px] md:text-[16px] font-[sans-medium] ">
-                Lorem ipsum dolor sit amet harta consectetur.
+                {dil === "tk"
+                  ? "Biz müşderilerimiziň ynamyny gazanan, ygtybarly ätiýaçlandyryş hyzmatlaryny hödürleýäris."
+                  : dil === "ru"
+                  ? "Мы предоставляем надежные страховые услуги, заслужившие доверие клиентов."
+                  : " We provide reliable insurance services trusted by our clients."}
               </p>
             </div>
 
@@ -673,10 +696,14 @@ const Home = () => {
                 className="md:w-[46px] sm:w-[26px] object-cover "
               />
               <p className="sm:pt-5 md:mt-[35px] sm:mb-2 md:mb-[15px] text-[20px] font-[sans-semibold]  ">
-                Çalt
+                {dil === "tk" ? "Çalt" : dil === "ru" ? "Быстро" : "Fast"}
               </p>
               <p className="sm:w-full md:w-[90%] text-[#6A6A6A] sm:text-[14px] md:text-[16px] font-[sans-medium] ">
-                Lorem ipsum dolor sit amet consectetur.
+                {dil === "tk"
+                  ? "Tiz we amatly ätiýaçlandyryş hyzmatlary bilen size hyzmat edýäris!"
+                  : dil === "ru"
+                  ? "Мы предоставляем быстрые и удобные страховые решения!"
+                  : "We offer fast and convenient insurance solutions!"}
               </p>
             </div>
 
@@ -687,10 +714,18 @@ const Home = () => {
                 className="md:w-[46px] sm:w-[26px] object-cover "
               />
               <p className="sm:pt-5 md:mt-[35px] sm:mb-2 md:mb-[15px] text-[20px] font-[sans-semibold]  ">
-                Professional
+                {dil === "tk"
+                  ? "Tejribeli"
+                  : dil === "ru"
+                  ? "Опытно"
+                  : "Experienced"}
               </p>
               <p className="sm:w-full md:w-[90%] text-[#6A6A6A] sm:text-[14px] md:text-[16px] font-[sans-medium] ">
-                Lorem ipsum dolor sit amet harta consectetur.
+                {dil === "tk"
+                  ? "Köp ýyllyk tejribämiz bilen siziň ygtybarly goldawyňyz bolarys!"
+                  : dil === "ru"
+                  ? "Благодаря многолетнему опыту, мы – ваша надежная поддержка!"
+                  : "With years of experience, we are your trusted support!"}
               </p>
             </div>
 
@@ -701,10 +736,18 @@ const Home = () => {
                 className="md:w-[46px] sm:w-[26px] object-cover "
               />
               <p className="sm:pt-5 md:mt-[35px] sm:mb-2 md:mb-[15px] text-[20px] font-[sans-semibold]  ">
-                Gorag
+                {dil === "tk"
+                  ? "Howpsuz"
+                  : dil === "ru"
+                  ? "Безопасно"
+                  : "Secure"}
               </p>
               <p className="sm:w-full md:w-[90%] text-[#6A6A6A] sm:text-[14px] md:text-[16px] font-[sans-medium] ">
-                Lorem ipsum dolor sit amet harta consectetur.
+                {dil === "tk"
+                  ? "Maliýe we emläk goragyňyz biziň bilen ygtybarly ellerde!"
+                  : dil === "ru"
+                  ? "Ваша финансовая и имущественная безопасность в надежных руках!"
+                  : "Your financial and property security is in safe hands with us!"}
               </p>
             </div>
           </div>
@@ -714,31 +757,32 @@ const Home = () => {
               BIZIŇ AÝRATYNLYGYMYZ
             </p>
             <p className="text-[46px] md:block sm:hidden font-[sans-medium] mt-[35px] mb-[48px] ">
-              Beýlekilerden tapawutlanmak üçin dogry ýer
+              {dil === "tm"
+                ? "Siziň ygtybarly hyzmatdaşyňyz! "
+                : dil === "ru"
+                ? "Ваш надежный партнер! "
+                : "Your Trusted Partner! "}
             </p>
             <p className="sm:text-[14px] md:text-[16px] md:text-left sm:text-center font-[sans-medium] text-[#6A6A6A] ">
-              Lorem ipsum dolor sit amet consectetur. In adipiscing integer
-              laoreet mauris sagittis. Mauris tellus in vestibulum lectus magna
-              lectus vitae vitae. Commodo sagittis in hendrerit vel amet
-              molestie in. Velit cursus commodo diam nunc fermentum. Molestie
-              porta quisque sed in fermentum et consectetur dictum. Habitasse
-              interdum sit at maecenas mauris porttitor non. Orci tempor
-              elementum morbi nunc ante dui leo rhoncus risus. Neque dictum
-              massa risus velit elementum ac.{" "}
+              {dil === "tm"
+                ? "Biz müşderilerimize ygtybarly, howpsuz, çalt we tejribeli ätiýaçlandyryş hyzmatlaryny hödürleýäris. Maliýe we emläk goragyňyz biziň bilen kepillendirilen! Tiz we amatly hyzmatlarymyz bilen iň gowy çözgütleri size ýetirýäris. Köp ýyllyk tejribämiz bilen, geljegiňizi ynam bilen goramak üçin siziň hyzmatyňyzda!"
+                : dil === "ru"
+                ? "Мы предлагаем надежные, безопасные, быстрые и опытные страховые услуги. Ваша финансовая и имущественная безопасность гарантирована с нами! Мы предоставляем лучшие решения быстро и удобно. Благодаря многолетнему опыту, мы здесь, чтобы защитить ваше будущее с уверенностью!"
+                : "We provide reliable, secure, fast, and experienced insurance services. Your financial and property protection is guaranteed with us! We deliver the best solutions quickly and conveniently. With years of experience, we are here to safeguard your future with confidence!"}
             </p>
           </div>
         </div>
       </section>
 
       {/* clients */}
-      <section className="w-full mb-[100px] " id="clients">
+      <section className="w-full sm:mb-[50px] md:mb-[100px] " id="clients">
         <div className="w-full">
           {/* <img
             src={ellipse3}
             alt="ellipse"
             className="absolute w-[50%] h-fit object-cover top-0 left-0 "
           /> */}
-          <div className="w-[90%] relative mx-auto mb-[145px] lg:gap-0 sm:gap-10 flex lg:flex-row sm:flex-col items-center justify-between">
+          <div className="w-[80%] relative mx-auto mb-[145px] lg:gap-0 sm:gap-10 flex lg:flex-row sm:flex-col items-center justify-between">
             <div className="sm:w-full lg:w-[50%] ">
               <p className="sm:text-[8px] md:text-[12px] tracking-[5px] font-[sans-regular] sm:text-center lg:text-left sm:mb-5 md:mb-[35px] ">
                 MÜŞDERILERIMIZ
@@ -748,241 +792,15 @@ const Home = () => {
               </p>
             </div>
 
-            <div className="sm:w-full lg:w-[45%]">
+            <div className="sm:w-full lg:w-[35%] relative">
               <div className="flex h-[50vh] items-center justify-between w-full overflow-hidden">
-                <div className="w-full relative pl-10">
-                  <Slider {...settings}>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px]">
-                      <img
-                        src={logo1}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo2}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo3}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo4}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo5}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo6}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo7}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo8}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo9}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo10}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo11}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo12}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo13}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo14}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo15}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo16}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                  </Slider>
-                  <div className="lg:block sm:hidden slider-overlay-top"></div>
+                <div className="w-full flex items-center justify-center ">
+                  <ContinuousVerticalSlider items={logos} />
+                  <div className="slider-overlay_top"></div>
                 </div>
 
-                <div className="w-full mt-10 mr-[-40px] ">
-                  <Slider {...settings2}>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px]">
-                      <img
-                        src={logo1}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo2}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo3}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo4}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo5}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo6}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo7}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo8}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo9}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo10}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo11}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo12}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo13}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo14}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo15}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                    <div className="rounded-[21px] bg-[#F8F8F8] !w-fit flex items-center justify-center sm:px-[30px] md:px-[50px] sm:py-5 md:py-[30px] ">
-                      <img
-                        src={logo16}
-                        alt="logo"
-                        className="sm:w-[50px] md:w-[80px] sm:h-[50px] md:h-[80px] object-contain"
-                      />
-                    </div>
-                  </Slider>
+                <div className="w-full flex items-center justify-center mt-10 ">
+                  <ContinuousVerticalSlider direction="reverse" items={logos} />
                   <div className="slider-overlay-bottom"></div>
                 </div>
               </div>
@@ -1003,7 +821,11 @@ const Home = () => {
               onClick={() => navigate("/contact")}
               className="bg-[#34C2AA] text-[14px] font-[sans-semibold] rounded-[22px] outline-none py-[10px] px-[22px] flex items-center justify-center "
             >
-              Habarlaşmak üçin
+              {dil === "tk"
+                ? "Habarlaşmak üçin"
+                : dil === "ru"
+                ? "Обращайтесь к нам"
+                : "Contact us"}
             </button>
           </div>
         </div>
