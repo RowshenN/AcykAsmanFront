@@ -1,29 +1,29 @@
-import { useState } from 'react'
+import { LuMoon, LuSunDim } from 'react-icons/lu'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../../images/logo.png'
-import moon_dark from '../../images/moon dark .svg'
-import moon_light from '../../images/moon light .svg'
-import sun from '../../images/sun.svg'
 import video from '../../images/video.svg'
+import { useTheme } from '../../utils/ThemeContext'
 
 const Navigation = () => {
-	const [dark, setDark] = useState(false)
 	const location = useLocation()
+	const { theme, setTheme } = useTheme()
+
 	return (
-		<div className='w-full border pl-[60px] pr-[9px] flex items-center justify-between py-1 border-border rounded-[54px] '>
+		<div className='w-full bg-gradient-light dark:bg-[#161618] sticky top-2 z-50 mb-4 border pl-[60px] pr-[9px] flex items-center justify-between py-1 border-border rounded-[54px] '>
 			<Link to={'/'}>
-				<div className='w-[86px]  cursor-pointer'>
+				<div className='w-[86px] cursor-pointer'>
 					<img src={logo} alt='logo' className='w-full h-full object-contain' />
 				</div>
 			</Link>
 
 			<div className='w-fit flex items-center justify-center gap-[22px] '>
+				{/* nav links */}
 				<div className='flex items-center text-[16px] justify-center gap-7'>
 					<Link
 						className={
 							location.pathname === '/'
-								? 'font-[medium] text-[#008DD2] '
-								: 'text-black font-[regular] '
+								? 'font-[medium] text-blue'
+								: 'text-black dark:text-white font-[regular]'
 						}
 						to={'/'}
 					>
@@ -32,8 +32,8 @@ const Navigation = () => {
 					<Link
 						className={
 							location.pathname === '/works'
-								? 'font-[medium] text-[#008DD2] '
-								: 'text-black font-[regular] '
+								? 'font-[medium] text-blue'
+								: 'text-black dark:text-white font-[regular]'
 						}
 						to={'/works'}
 					>
@@ -45,8 +45,8 @@ const Navigation = () => {
 					<Link
 						className={
 							location.pathname === '/services'
-								? 'font-[medium] text-[#008DD2] '
-								: 'text-black font-[regular] '
+								? 'font-[medium] text-blue'
+								: 'text-black dark:text-white font-[regular]'
 						}
 						to={'/services'}
 					>
@@ -55,8 +55,8 @@ const Navigation = () => {
 					<Link
 						className={
 							location.pathname === '/news'
-								? 'font-[medium] text-[#008DD2] '
-								: 'text-black font-[regular] '
+								? 'font-[medium] text-blue'
+								: 'text-black dark:text-white font-[regular]'
 						}
 						to={'/news'}
 					>
@@ -65,8 +65,8 @@ const Navigation = () => {
 					<Link
 						className={
 							location.pathname === '/about'
-								? 'font-[medium] text-[#008DD2] '
-								: 'text-black font-[regular] '
+								? 'font-[medium] text-blue'
+								: 'text-black dark:text-white font-[regular]'
 						}
 						to={'/about'}
 					>
@@ -74,31 +74,34 @@ const Navigation = () => {
 					</Link>
 				</div>
 
-				<div className='w-fit  py-2 px-2 border border-border rounded-[24px] flex items-center justify-center '>
+				{/* dark and light controller */}
+				<div className='w-fit py-2 px-2 border border-border rounded-[24px] flex items-center justify-center '>
+					{/* Light button */}
 					<div
-						onClick={() => setDark(!dark)}
+						onClick={() => setTheme('light')}
 						className={
-							!dark
-								? 'bg-[#008DD2] cursor-pointer rounded-full py-1 px-[9.5px]  '
-								: 'cursor-pointer rounded-full py-1 px-[9.5px] '
+							theme === 'light'
+								? 'bg-blue cursor-pointer rounded-full py-1 px-[9.5px]'
+								: 'cursor-pointer rounded-full py-1 px-[9.5px]'
 						}
 					>
-						<img src={sun} alt='sun' />
+						<LuSunDim className='text-[24px] text-white' />
 					</div>
 
+					{/* Dark button */}
 					<div
-						onClick={() => setDark(!dark)}
+						onClick={() => setTheme('dark')}
 						className={
-							dark
-								? 'bg-[#008DD2] cursor-pointer rounded-full py-1 px-[9.5px]  '
-								: 'cursor-pointer rounded-full py-1 px-[9.5px] '
+							theme === 'dark'
+								? 'bg-blue cursor-pointer rounded-full py-1 px-[9.5px]'
+								: 'cursor-pointer rounded-full py-1 px-[9.5px]'
 						}
 					>
-						{!dark ? (
-							<img src={moon_dark} alt='moon' />
-						) : (
-							<img src={moon_light} alt='moon' />
-						)}
+						<LuMoon
+							className={`text-[24px] ${
+								theme === 'dark' ? 'text-white' : 'text-[#292D32]'
+							}`}
+						/>
 					</div>
 				</div>
 			</div>

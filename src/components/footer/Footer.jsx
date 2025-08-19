@@ -10,9 +10,9 @@ import youtube from '../../images/youtube.svg'
 
 const Footer = () => {
 	return (
-		<div className='w-full border border-border roounded-[28px] divide-y divide-border '>
+		<div className='w-full bg-[#F8F8F8] border rounded-[28px] border-border roounded-[28px] divide-y divide-border '>
 			<div className='w-full flex items-center justify-center'>
-				<div className='w-full mt-[-100px] bg-white shadow-md max-w-[520px]  border border-border rounded-[15px] flex items-center justify-between divide-x divide-border py-3 px-[34px] '>
+				<div className='w-full mt-[50px] bg-white shadow-md max-w-[520px]  border border-border rounded-[15px] flex items-center justify-between divide-x divide-border py-3 px-[34px] '>
 					<div className='flex w-full items-center justify-center'>
 						<p className='text-[16px] font-[semibold] text-[#656565] '>
 							Manager: <span>WekilOs</span>
@@ -47,7 +47,7 @@ const Footer = () => {
 				</Link>
 
 				<div className='bg-green-600'>
-					<p className='text-[#008DD2] w-[60%] text-center flex items-center justify-center  bg-red-400 text-[18px] font-[semibold] '>
+					<p className='text-blue w-[60%] text-center flex items-center justify-center  bg-red-400 text-[18px] font-[semibold] '>
 						{' '}
 						FDBC0463, Compass Building, Al Shohada Road, Al Hamra Industrial
 						Zone-FZ, Ras Al Khaimah, United Arab Emirates.
@@ -63,7 +63,12 @@ const Footer = () => {
 				</div>
 			</div>
 
-			<div></div>
+			<div className='w-full pt-[33px] pb-[22px] flex items-center justify-center'>
+				<p className=' text-[#3D3D3D] text-[14px] font-[regular] '>
+					Copyright © 2025 •{' '}
+					<span className='font-[bold] '>Açyk Asman Yyldyzy</span>
+				</p>
+			</div>
 		</div>
 	)
 }
