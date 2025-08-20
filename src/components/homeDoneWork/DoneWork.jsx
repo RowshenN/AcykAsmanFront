@@ -2,7 +2,7 @@ import surat from '../../images/donework.png'
 
 const DoneWork = () => {
 	return (
-		<div className='w-full mb-84 text-black dark:text-white bg-blue rounded-[28px] py-5 px-5'>
+		<div className='w-full mb-84 text-white bg-blue rounded-[28px] py-5 px-5'>
 			<div className='w-full flex items-start gap-6'>
 				{/* text div */}
 				<div className='w-[40%] flex pt-3 flex-col '>

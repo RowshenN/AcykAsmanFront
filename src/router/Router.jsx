@@ -5,8 +5,7 @@ import Navigation from '../components/nav/Navigation'
 import PageLoading from '../components/pageLoading/PageLoading'
 import Home from '../pages/home/Home'
 import NotFound from '../pages/notFound/NotFound'
-import { ThemeProvider } from '../utils/ThemeContext'
-import { AboutUs, News, Services, Works } from './Lazy'
+import { AboutUs, News, NewsInner, Services, Works } from './Lazy'
 
 const ScrollToTop = ({ children }) => {
 	const { pathname } = useLocation()
@@ -17,27 +16,25 @@ const ScrollToTop = ({ children }) => {
 
 	return children
 }
-
 const Router = () => {
 	return (
-		<ThemeProvider>
-			<BrowserRouter>
-				<Navigation />
-				<ScrollToTop>
-					<Suspense fallback={<PageLoading />}>
-						<Routes>
-							<Route path='/' element={<Home />} />
-							<Route path='/works' element={<Works />} />
-							<Route path='/about' element={<AboutUs />} />
-							<Route path='/news' element={<News />} />
-							<Route path='/services' element={<Services />} />
-							<Route path='*' element={<NotFound />} />
-						</Routes>
-					</Suspense>
-				</ScrollToTop>
-				<Footer />
-			</BrowserRouter>
-		</ThemeProvider>
+		<BrowserRouter>
+			<Navigation />
+			<ScrollToTop>
+				<Suspense fallback={<PageLoading />}>
+					<Routes>
+						<Route path='/' element={<Home />} />
+						<Route path='/works' element={<Works />} />
+						<Route path='/about' element={<AboutUs />} />
+						<Route path='/news' element={<News />} />
+						<Route path='/news/inner' element={<NewsInner />} />
+						<Route path='/services' element={<Services />} />
+						<Route path='*' element={<NotFound />} />
+					</Routes>
+				</Suspense>
+			</ScrollToTop>
+			<Footer />
+		</BrowserRouter>
 	)
 }
 

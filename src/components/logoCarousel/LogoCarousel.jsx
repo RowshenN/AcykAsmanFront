@@ -37,7 +37,7 @@ const LogosCarousel = () => {
 	}, [])
 
 	return (
-		<div className='mb-[106px]'>
+		<div className='mb-[106px] dark:text-white '>
 			<div className='w-full flex items-center justify-center mb-6'>
 				<h1 className='text-[24px] font-[semibold]'>
 					Hyzmatdaş we müşderi tarapyndan ynamdar
@@ -46,8 +46,8 @@ const LogosCarousel = () => {
 
 			<div className='relative w-full py-6'>
 				{/* Fade edges */}
-				<div className='pointer-events-none absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-white dark:from-dark to-transparent z-10' />
-				<div className='pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-white dark:from-dark to-transparent z-10' />
+				<div className='pointer-events-none absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-white dark:from-black to-transparent z-10' />
+				<div className='pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-white dark:from-black to-transparent z-10' />
 
 				{/* Scroll viewport */}
 				<div ref={scrollerRef} className='w-full overflow-hidden'>
@@ -56,7 +56,7 @@ const LogosCarousel = () => {
 						{[...logos, ...logos].map((logo, i) => (
 							<div
 								key={i}
-								className='shrink-0 mx-3 border py-2 px-6 border-border rounded-[18px]'
+								className='shrink-0 mx-3 border py-2 px-6 border-border dark:border-borderDark rounded-[18px]'
 							>
 								<img
 									src={logo}

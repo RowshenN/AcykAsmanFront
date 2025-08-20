@@ -9,7 +9,11 @@ const Navigation = () => {
 	const { theme, setTheme } = useTheme()
 
 	return (
-		<div className='w-full bg-gradient-light dark:bg-[#161618] sticky top-2 z-50 mb-4 border pl-[60px] pr-[9px] flex items-center justify-between py-1 border-border rounded-[54px] '>
+		<div
+			className={`w-full ${
+				theme === 'dark' ? 'bg-[#161618]' : 'bg-white'
+			} sticky top-2 z-50 mb-9 border pl-[60px] pr-[9px] flex items-center justify-between py-1 border-border dark:border-borderDark rounded-[54px]`}
+		>
 			<Link to={'/'}>
 				<div className='w-[86px] cursor-pointer'>
 					<img src={logo} alt='logo' className='w-full h-full object-contain' />
@@ -54,7 +58,8 @@ const Navigation = () => {
 					</Link>
 					<Link
 						className={
-							location.pathname === '/news'
+							location.pathname === '/news' ||
+							location.pathname.includes('/news')
 								? 'font-[medium] text-blue'
 								: 'text-black dark:text-white font-[regular]'
 						}
@@ -75,7 +80,7 @@ const Navigation = () => {
 				</div>
 
 				{/* dark and light controller */}
-				<div className='w-fit py-2 px-2 border border-border rounded-[24px] flex items-center justify-center '>
+				<div className='w-fit cursor-pointer py-2 px-2 border border-border dark:border-borderDark rounded-[24px] flex items-center justify-center '>
 					{/* Light button */}
 					<div
 						onClick={() => setTheme('light')}

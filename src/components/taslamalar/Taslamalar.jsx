@@ -9,7 +9,7 @@ const Taslamalar = () => {
 		<div className='w-full mb-[42px]'>
 			{/* header */}
 			<div className='w-full mb-[34px] flex items-center justify-between'>
-				<h1 className='text-[32px] font-[semibold] '>
+				<h1 className='text-[32px] dark:text-white font-[semibold] '>
 					Taslamalar we sergiler{' '}
 				</h1>
 
@@ -17,16 +17,16 @@ const Taslamalar = () => {
 				<div className='flex items-center justify-center gap-[26px]'>
 					<FaThLarge
 						onClick={() => setGrid(true)}
-						className={`w-[32px] ${
+						className={`w-[28px] ${
 							grid ? 'text-blue' : 'text-[#797979]'
-						}  transition-all duration-200 hover:text-blue h-[32px] object-contain cursor-pointer`}
+						}  transition-all duration-200 hover:text-blue h-[28px] object-contain cursor-pointer`}
 					/>
 
 					<FaAlignLeft
 						onClick={() => setGrid(false)}
-						className={`w-[32px] ${
+						className={`w-[28px] ${
 							!grid ? 'text-blue' : 'text-[#797979]'
-						}  transition-all duration-200 hover:text-blue h-[32px] object-contain cursor-pointer`}
+						}  transition-all duration-200 hover:text-blue h-[28px] object-contain cursor-pointer`}
 					/>
 				</div>
 			</div>
@@ -34,7 +34,9 @@ const Taslamalar = () => {
 			{/* cards */}
 			<div className='w-full mb-[44px] '>
 				{grid ? (
-					<div className='grid grid-cols-3 gap-[34px] w-full'>
+					<div className='grid grid-cols-taslama-cards gap-[34px] w-full'>
+						<Card />
+						<Card />
 						<Card />
 						<Card />
 						<Card />

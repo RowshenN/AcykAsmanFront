@@ -6,8 +6,8 @@ module.exports = {
 		extend: {
 			gridTemplateColumns: {
 				'auto-fill-250': 'repeat(auto-fill,minmax(250px,1fr))',
-				'auto-fit-250': 'repeat(auto-fit,minmax(250px,1fr))',
-				'auto-fit-150': 'repeat(auto-fit,minmax(350px,1fr))',
+				'news-cards': 'repeat(auto-fit,minmax(375px,1fr))',
+				'taslama-cards': 'repeat(auto-fit,minmax(350px,1fr))',
 			},
 			colors: {
 				primary: '#1E3A8A', // dark
@@ -16,6 +16,7 @@ module.exports = {
 				light: '#F3F4F6', // light gray
 				dark: '#111827',
 				border: '#DBDBDB',
+				borderDark: '#797979',
 				blue: '#008DD2',
 			},
 			screens: {
@@ -28,6 +29,7 @@ module.exports = {
 			},
 			backgroundImage: {
 				'gradient-light': 'linear-gradient(110deg, #F2FBFF 0%, #FFFFFF 100%)',
+				'gradient-dark': 'linear-gradient(110deg, #161618 0%, #161618 100%)',
 			},
 			spacing: {
 				84: '84px',
