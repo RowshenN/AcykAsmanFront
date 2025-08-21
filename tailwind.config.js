@@ -18,6 +18,7 @@ module.exports = {
 				border: '#DBDBDB',
 				borderDark: '#797979',
 				blue: '#008DD2',
+				dark: '#161618',
 			},
 			screens: {
 				xs: '480px',

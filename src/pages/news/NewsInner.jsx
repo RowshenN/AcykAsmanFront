@@ -18,17 +18,10 @@ const NewsInner = () => {
 			<div className='w-full mb-[48px] '>
 				<Carousel
 					arrows
-					infinite={false}
-					// prevArrow={
-					// 	<button className='absolute left-2 top-1/2 -translate-y-1/2 z-10'>
-					// 		<img src={left} alt='prev' className='w-[50px] h-[38px]' />
-					// 	</button>
-					// }
-					// nextArrow={
-					// 	<button className='absolute right-2 top-1/2 -translate-y-1/2 z-10'>
-					// 		<img src={right} alt='next' className='w-[50px] h-[38px]' />
-					// 	</button>
-					// }
+					infinite={true}
+					autoplay={true}
+					speed={1000}
+					autoplaySpeed={4000}
 				>
 					<div className='max-h-[80vh] h-full w-full '>
 						<img

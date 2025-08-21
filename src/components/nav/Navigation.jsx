@@ -48,7 +48,8 @@ const Navigation = () => {
 					</Link>
 					<Link
 						className={
-							location.pathname === '/services'
+							location.pathname === '/services' ||
+							location.pathname.includes('/services')
 								? 'font-[medium] text-blue'
 								: 'text-black dark:text-white font-[regular]'
 						}

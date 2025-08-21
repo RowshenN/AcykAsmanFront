@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { FaAlignLeft, FaThLarge } from 'react-icons/fa'
-import Card from '../taslamaCard/Card'
-import LongCard from '../taslamaCard/LongCard'
+import LongPhotoCard from '../taslamaCard/LongPhotoCard'
+import PhotoCard from '../taslamaCard/PhotoCard'
 
 const Taslamalar = () => {
 	const [grid, setGrid] = useState(true)
@@ -35,17 +35,17 @@ const Taslamalar = () => {
 			<div className='w-full mb-[44px] '>
 				{grid ? (
 					<div className='grid grid-cols-taslama-cards gap-[34px] w-full'>
-						<Card />
-						<Card />
-						<Card />
-						<Card />
-						<Card />
+						<PhotoCard />
+						<PhotoCard />
+						<PhotoCard />
+						<PhotoCard />
+						<PhotoCard />
 					</div>
 				) : (
 					<div className='flex flex-col items-center justify-center gap-5 w-full divide-y divide-border '>
-						<LongCard />
-						<LongCard />
-						<LongCard />
+						<LongPhotoCard />
+						<LongPhotoCard />
+						<LongPhotoCard />
 					</div>
 				)}
 			</div>

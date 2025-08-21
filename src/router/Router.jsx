@@ -5,7 +5,7 @@ import Navigation from '../components/nav/Navigation'
 import PageLoading from '../components/pageLoading/PageLoading'
 import Home from '../pages/home/Home'
 import NotFound from '../pages/notFound/NotFound'
-import { AboutUs, News, NewsInner, Services, Works } from './Lazy'
+import { AboutUs, News, NewsInner, ServiceInner, Services, Works } from './Lazy'
 
 const ScrollToTop = ({ children }) => {
 	const { pathname } = useLocation()
@@ -29,6 +29,7 @@ const Router = () => {
 						<Route path='/news' element={<News />} />
 						<Route path='/news/inner' element={<NewsInner />} />
 						<Route path='/services' element={<Services />} />
+						<Route path='/services/inner' element={<ServiceInner />} />
 						<Route path='*' element={<NotFound />} />
 					</Routes>
 				</Suspense>
