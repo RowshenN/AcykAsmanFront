@@ -1,8 +1,12 @@
+import { Link } from 'react-router-dom'
 import surat from '../../images/cardImage.png'
 
 const LongPhotoCard = () => {
 	return (
-		<div className='w-full flex items-center justify-start py-[18px] cursor-pointer px-[18px] hover:bg-[#F3F3F3] dark:hover:bg-[#313133] dark:text-white transition-all duration-200  '>
+		<Link
+			to={'/services/inner?type=photo'}
+			className='w-full flex items-center justify-start py-[18px] cursor-pointer px-[18px] hover:bg-[#F3F3F3] dark:hover:bg-[#313133] dark:text-white transition-all duration-200  '
+		>
 			<div className='flex w-[50%] items-center justify-start gap-[22px] '>
 				<div className='max-w-[334px] border rounded-[20px] border-border dark:border-borderDark h-full w-full max-h-[296px] '>
 					<img
@@ -25,7 +29,7 @@ const LongPhotoCard = () => {
 			<div className='w-1/2 flex items-center justify-center '>
 				<p>15.05.2025</p>
 			</div>
-		</div>
+		</Link>
 	)
 }
 

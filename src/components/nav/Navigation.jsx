@@ -1,12 +1,35 @@
+import { useEffect, useRef, useState } from 'react'
 import { LuMoon, LuSunDim } from 'react-icons/lu'
 import { Link, useLocation } from 'react-router-dom'
 import logo from '../../images/logo.png'
 import video from '../../images/video.svg'
 import { useTheme } from '../../utils/ThemeContext'
+import VideoPlayer from '../videPlayer/VideoPlayer'
 
 const Navigation = () => {
 	const location = useLocation()
 	const { theme, setTheme } = useTheme()
+	const [isVideoOpen, setIsVideoOpen] = useState(false)
+
+	const videoRef = useRef(null)
+
+	useEffect(() => {
+		const handleClickOutside = event => {
+			if (videoRef.current && !videoRef.current.contains(event.target)) {
+				setIsVideoOpen(false)
+			}
+		}
+
+		if (isVideoOpen) {
+			document.addEventListener('mousedown', handleClickOutside)
+		} else {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+
+		return () => {
+			document.removeEventListener('mousedown', handleClickOutside)
+		}
+	}, [isVideoOpen])
 
 	return (
 		<div
@@ -33,19 +56,19 @@ const Navigation = () => {
 					>
 						Home
 					</Link>
-					<Link
+					<div
+						onClick={() => setIsVideoOpen(true)}
 						className={
-							location.pathname === '/works'
-								? 'font-[medium] text-blue'
-								: 'text-black dark:text-white font-[regular]'
+							isVideoOpen
+								? 'font-[medium] text-blue cursor-pointer'
+								: 'text-black dark:text-white font-[regular] cursor-pointer'
 						}
-						to={'/works'}
 					>
 						<div className='flex items-center justify-center gap-1'>
 							<p>Works</p>
 							<img src={video} alt='video' />
 						</div>
-					</Link>
+					</div>
 					<Link
 						className={
 							location.pathname === '/services' ||
@@ -111,6 +134,26 @@ const Navigation = () => {
 					</div>
 				</div>
 			</div>
+
+			{isVideoOpen && (
+				<div className='fixed inset-0 bg-black/70 flex  items-center justify-center z-[1000]'>
+					<div
+						ref={videoRef}
+						className='relative w-[80%] mx-auto rounded-xl overflow-hidden'
+					>
+						{/* Close Button */}
+						<div
+							onClick={() => setIsVideoOpen(false)}
+							className='border absolute top-3 right-5 border-white rounded-full py-1 px-3 flex items-center justify-center	 '
+						>
+							<button className=' text-white text-2xl z-50'>✕</button>
+						</div>
+
+						{/* Video Player */}
+						<VideoPlayer src={'/videos/video.mp4'} />
+					</div>
+				</div>
+			)}
 		</div>
 	)
 }

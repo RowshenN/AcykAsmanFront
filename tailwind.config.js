@@ -30,7 +30,7 @@ module.exports = {
 			},
 			backgroundImage: {
 				'gradient-light': 'linear-gradient(110deg, #F2FBFF 0%, #FFFFFF 100%)',
-				'gradient-dark': 'linear-gradient(110deg, #161618 0%, #161618 100%)',
+				'gradient-dark': 'linear-gradient(110deg, #161618 0%, #1C1C1E 100%)',
 			},
 			spacing: {
 				84: '84px',

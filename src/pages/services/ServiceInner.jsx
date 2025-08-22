@@ -55,14 +55,7 @@ const ServiceInner = () => {
 				) : (
 					// ----- VIDEO PLAYER -----
 					<div className='w-full rounded-2xl overflow-hidden'>
-						{/* <video
-							className='w-full h-full rounded-2xl'
-							src='/videos/video.mp4'
-							controls
-							poster={surat}
-						/> */}
 						<VideoPlayer src={'/videos/video.mp4'} />
-						{/* <ReactPlayer src='/videos/video.mp4' /> */}
 					</div>
 				)}
 			</div>

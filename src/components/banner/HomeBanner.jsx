@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import surat from '../../images/homeBanner.png'
 
 const HomeBanner = () => {
@@ -12,12 +13,13 @@ const HomeBanner = () => {
 				<h1 className='text-[60px] font-[bold] mb-2 '>
 					Phish Concert | Sphere, Awaza
 				</h1>
-				<button
+				<Link
+					to={'/services/inner?type=video'}
 					className='border hover:bg-white/40 transition-all duration-200 border-white rounded-[28px] py-[14px] px-7 '
 					type='button'
 				>
 					Ginişleýin
-				</button>
+				</Link>
 			</div>
 
 			<div className='flex w-fit top-[25%] right-[7%] absolute text-white flex-col items-center justify-center gap-5'>
