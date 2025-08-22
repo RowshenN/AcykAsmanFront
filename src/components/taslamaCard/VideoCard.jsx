@@ -3,11 +3,8 @@ import surat from '../../images/videoImg.png'
 
 const VideoCard = () => {
 	return (
-		<Link
-			to={'/services/inner?type=video'}
-			className='hover:bg-[#F3F3F3] dark:hover:bg-[#313133] transition-all duration-200 rounded-[20px] relative cursor-pointer px-[14px] pt-[10px] pb-[35px] '
-		>
-			<div className='absolute bg-border/30 dark:bg-borderDark/30 rounded-[6px] py-1 px-[10px] text-white text-[18px] font-[regular] top-[5%] left-[7%] '>
+		<Link to={'/services/inner?type=video'} className='relative '>
+			<div className='absolute bg-border/30 dark:bg-borderDark/30 rounded-[6px] py-1 px-[10px] text-white text-[18px] font-[regular] top-[2%] left-[3%] '>
 				<p>wideo</p>
 			</div>
 

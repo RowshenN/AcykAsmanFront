@@ -5,7 +5,7 @@ module.exports = {
 	theme: {
 		extend: {
 			gridTemplateColumns: {
-				'auto-fill-250': 'repeat(auto-fill,minmax(250px,1fr))',
+				'auto-fill-250': 'repeat(auto-fill,minmax(350px,1fr))',
 				'news-cards': 'repeat(auto-fit,minmax(375px,1fr))',
 				'taslama-cards': 'repeat(auto-fit,minmax(350px,1fr))',
 			},
@@ -21,8 +21,8 @@ module.exports = {
 				dark: '#161618',
 			},
 			screens: {
-				xs: '480px',
-				sm: '640px',
+				xs: '320px',
+				sm: '480px',
 				md: '768px',
 				lg: '1024px',
 				xl: '1280px',
