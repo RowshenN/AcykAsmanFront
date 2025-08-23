@@ -24,25 +24,22 @@ const HomeBanner = () => {
 
 	return (
 		<div className='w-full xs:mb-10 md:mb-84 relative xs:min-h-[85vh] md:min-h-[90vh] rounded-[28px] h-full overflow-hidden'>
+			{/* Background image */}
 			<motion.img
 				src={surat}
 				alt='surat'
 				className='w-full xs:min-h-[85vh] md:min-h-[90vh] h-full rounded-[28px] object-cover'
 				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
-				viewport={{ once: false }}
-				data-aos='fade-left'
-				data-aos-duration='1000'
+				animate={{ opacity: 1 }}
+				transition={{ duration: 1 }}
 			/>
 
 			{/* Text and button */}
 			<motion.div
 				className='absolute text-white left-[3%] xs:bottom-[3%] md:bottom-[7%] xs:w-[80%] md:w-[65%] lg:w-[45%]'
-				initial={{ opacity: 0 }}
-				whileInView={{ opacity: 1 }}
-				viewport={{ once: false }}
-				data-aos='fade-up'
-				data-aos-duration='1000'
+				initial={{ opacity: 0, y: 30 }}
+				animate={{ opacity: 1, y: 0 }}
+				transition={{ duration: 0.8, ease: 'easeOut', delay: 0.2 }}
 			>
 				<h1 className='xs:text-[30px] md:text-[40px] lg:text-[60px] font-[bold] xs:mb-5 md:mb-2'>
 					Phish Concert | Sphere, Awaza
@@ -66,10 +63,7 @@ const HomeBanner = () => {
 						custom={index}
 						variants={numberVariants}
 						initial='hidden'
-						whileInView='visible'
-						viewport={{ once: false }}
-						data-aos='fade-up'
-						data-aos-duration='1000'
+						animate='visible'
 					>
 						<div className='w-[54px] h-[1px] bg-white'></div>
 						<p>{num}</p>

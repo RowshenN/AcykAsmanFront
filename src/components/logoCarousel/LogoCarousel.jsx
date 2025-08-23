@@ -34,7 +34,7 @@ const LogosCarousel = () => {
 
 	return (
 		<motion.div
-			className='mb-[106px] dark:text-white'
+			className='xs:mb-[30px] md:mb-[106px] dark:text-white'
 			variants={containerVariants}
 			initial='hidden'
 			whileInView='visible'
@@ -42,36 +42,36 @@ const LogosCarousel = () => {
 			data-aos='fade-up'
 		>
 			<motion.div
-				className='w-full flex items-center justify-center mb-6'
+				className='w-full flex items-center justify-center xs:mb-3 md:mb-6'
 				variants={itemVariants}
 			>
-				<h1 className='text-[24px] font-[semibold]'>
+				<h1 className='xs:text-[20px] md:text-[24px] font-[semibold]'>
 					Hyzmatdaş we müşderi tarapyndan ynamdar
 				</h1>
 			</motion.div>
 
 			<div className='relative w-full py-6 overflow-hidden'>
 				{/* Fade edges */}
-				<div className='pointer-events-none absolute left-0 top-0 h-full w-20 bg-gradient-to-r from-white dark:from-black to-transparent z-10' />
-				<div className='pointer-events-none absolute right-0 top-0 h-full w-20 bg-gradient-to-l from-white dark:from-black to-transparent z-10' />
+				<div className='pointer-events-none absolute left-0 top-0 h-full xs:w-8 md:w-20 bg-gradient-to-r from-white dark:from-black to-transparent z-10' />
+				<div className='pointer-events-none absolute right-0 top-0 h-full xs:w-8 md:w-20 bg-gradient-to-l from-white dark:from-black to-transparent z-10' />
 
 				{/* Ticker viewport */}
 				<div className='w-full overflow-hidden'>
 					<motion.div
-						className='flex w-max items-center gap-6 animate-logo-scroll will-change-transform'
+						className='flex w-max items-center xs:gap-3 md:gap-6 animate-logo-scroll will-change-transform'
 						style={{ ['--duration']: '18s' }}
 						variants={containerVariants}
 					>
 						{[...logos, ...logos].map((logo, i) => (
 							<motion.div
 								key={i}
-								className='shrink-0 mx-3 border py-2 px-6 border-border dark:border-borderDark rounded-[18px]'
+								className='shrink-0 xs:mx-1 md:mx-3 border py-2 xs:px-2 md:px-6 border-border dark:border-borderDark rounded-[18px]'
 								variants={itemVariants}
 							>
 								<img
 									src={logo}
 									alt={`logo-${i % logos.length}`}
-									className='h-[75px] w-auto object-contain'
+									className='xs:h-[50px] md:h-[75px] w-auto object-contain'
 								/>
 							</motion.div>
 						))}

@@ -10,10 +10,9 @@ import surat from '../../images/carouselImg.png'
 
 const ServiceInner = () => {
 	const [searchParams] = useSearchParams()
-	const type = searchParams.get('type') // "photo" or "video"
+	const type = searchParams.get('type')
 	const navigate = useNavigate()
 
-	// Framer Motion variants
 	const containerVariants = {
 		hidden: {},
 		visible: { transition: { staggerChildren: 0.15 } },

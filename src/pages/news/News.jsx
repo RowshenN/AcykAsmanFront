@@ -5,7 +5,6 @@ import NewsCard from '../../components/newsCard/NewsCard'
 const News = () => {
 	const location = useLocation()
 
-	// Framer Motion variants
 	const containerVariants = {
 		hidden: {},
 		visible: {
@@ -22,16 +21,14 @@ const News = () => {
 		},
 	}
 
-	// Simulate 7 news cards
 	const newsArray = [...Array(7)]
 
 	return (
 		<motion.div
-			key={location.pathname} // <-- important! forces remount & animation on page revisit
+			key={location.pathname}
 			className='w-full'
 			initial='hidden'
-			whileInView='visible'
-			viewport={{ once: false, amount: 0.2 }}
+			animate='visible'
 			variants={containerVariants}
 		>
 			{/* Page Header */}
@@ -46,7 +43,7 @@ const News = () => {
 
 			{/* Cards */}
 			<motion.div
-				className='w-full grid grid-cols-news-cards gap-5'
+				className='w-full grid xs:grid-cols-2 md:grid-cols-news-cards gap-5'
 				variants={containerVariants}
 			>
 				<AnimatePresence>
@@ -55,8 +52,7 @@ const News = () => {
 							key={i}
 							variants={itemVariants}
 							initial='hidden'
-							whileInView='visible'
-							viewport={{ once: false, amount: 0.2 }}
+							animate='visible'
 						>
 							<NewsCard />
 						</motion.div>

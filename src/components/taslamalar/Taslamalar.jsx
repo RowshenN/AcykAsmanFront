@@ -6,11 +6,12 @@ import { FaAlignLeft, FaThLarge } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import LongPhotoCard from '../taslamaCard/LongPhotoCard'
 import PhotoCard from '../taslamaCard/PhotoCard'
+// import LongVideoCard from '../taslamaCard/LongVideoCard'
+// import VideoCard from '../taslamaCard/VideoCard'
 
 const Taslamalar = () => {
 	const [grid, setGrid] = useState(true)
 
-	// Initialize AOS
 	useEffect(() => {
 		AOS.init({
 			duration: 1000,
@@ -19,7 +20,6 @@ const Taslamalar = () => {
 		})
 	}, [])
 
-	// Framer Motion variants
 	const containerVariants = {
 		hidden: {},
 		visible: { transition: { staggerChildren: 0.15 } },
@@ -82,7 +82,7 @@ const Taslamalar = () => {
 							className='grid xs:grid-cols-2 md:grid-cols-taslama-cards xs:gap-3 md:gap-[34px] w-full'
 							variants={{
 								hidden: {},
-								visible: { transition: { staggerChildren: 0.2 } }, // stagger each card
+								visible: { transition: { staggerChildren: 0.2 } },
 							}}
 							initial='hidden'
 							animate='visible'
@@ -101,9 +101,10 @@ const Taslamalar = () => {
 											transition: { duration: 0.5 },
 										},
 									}}
-									className='w-full md:hover:bg-[#F3F3F3] rounded-[20px] relative cursor-pointer md:px-[14px] xs:px-2 pt-[10px] xs:pb-5 md:pb-[35px]  dark:hover:bg-[#313133] transition-all duration-200' // add hover here
+									className='w-full md:hover:bg-[#F3F3F3] rounded-[20px] relative cursor-pointer md:px-[14px] xs:px-2 pt-[10px] xs:pb-5 md:pb-[35px]  dark:hover:bg-[#313133] transition-all duration-200'
 								>
 									<PhotoCard />
+									{/* <VideoCard /> */}
 								</motion.div>
 							))}
 						</motion.div>
@@ -135,6 +136,7 @@ const Taslamalar = () => {
 									className='w-full'
 								>
 									<LongPhotoCard />
+									{/* <LongVideoCard /> */}
 								</motion.div>
 							))}
 						</motion.div>

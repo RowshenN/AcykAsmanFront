@@ -36,12 +36,10 @@ const ContactUs = () => {
 
 	return (
 		<motion.div
-			className='w-full mb-84'
+			className='w-full xs:mb-10 md:mb-84'
 			variants={containerVariants}
 			initial='hidden'
-			whileInView='visible'
-			viewport={{ once: false }}
-			data-aos='fade-up'
+			animate='visible'
 		>
 			{location.pathname === '/' && (
 				<motion.h1
@@ -53,14 +51,14 @@ const ContactUs = () => {
 			)}
 
 			<motion.div
-				className='w-full flex items-start gap-9'
+				className='w-full lg:flex-row xs:flex-col flex items-start xs:gap-5 md:gap-9'
 				variants={containerVariants}
 			>
 				{/* Image */}
-				<motion.div className='w-1/2' variants={itemVariants}>
+				<motion.div className='xs:w-full lg:w-1/2' variants={itemVariants}>
 					<img
 						src={surat}
-						alt='image'
+						alt='surat'
 						className='w-full object-cover h-full max-h-[400px] rounded-[14px]'
 					/>
 				</motion.div>
@@ -68,29 +66,29 @@ const ContactUs = () => {
 				{/* Form */}
 				<motion.form
 					onSubmit={handleSubmit}
-					className='w-1/2 flex items-center justify-center flex-col gap-6'
+					className='xs:w-full 	 md:w-1/2 flex items-center justify-center flex-col gap-6'
 					variants={itemVariants}
 				>
 					<motion.input
 						type='text'
 						placeholder='Ady'
-						className='outline-none w-full bg-[#F6F8FC] dark:bg-[#313133] border border-[#E3E7EE] dark:border-borderDark dark:text-white rounded-[12px] py-5 px-4 font-[regular]'
+						className='outline-none w-full bg-[#F6F8FC] dark:bg-[#313133] border border-[#E3E7EE] dark:border-borderDark dark:text-white rounded-[12px] xs:py-3 md:py-5 xs:px-2 md:px-4 font-[regular]'
 						variants={itemVariants}
 					/>
 					<motion.input
 						type='email'
 						placeholder='E-mail'
-						className='outline-none w-full bg-[#F6F8FC] dark:bg-[#313133] border border-[#E3E7EE] dark:border-borderDark dark:text-white rounded-[12px] py-5 px-4 font-[regular]'
+						className='outline-none w-full bg-[#F6F8FC] dark:bg-[#313133] border border-[#E3E7EE] dark:border-borderDark dark:text-white rounded-[12px] xs:py-3 md:py-5 xs:px-2 md:px-4 font-[regular]'
 						variants={itemVariants}
 					/>
 					<motion.textarea
 						placeholder='Bellik...'
-						className='outline-none min-h-[146px] w-full bg-[#F6F8FC] dark:bg-[#313133] border border-[#E3E7EE] dark:border-borderDark dark:text-white rounded-[12px] py-5 px-4 font-[regular]'
+						className='outline-none xs:min-h-[100px] md:min-h-[146px] w-full bg-[#F6F8FC] dark:bg-[#313133] border border-[#E3E7EE] dark:border-borderDark dark:text-white rounded-[12px] xs:py-3 md:py-5 xs:px-2 md:px-4 font-[regular]'
 						variants={itemVariants}
 					></motion.textarea>
 					<motion.button
 						type='submit'
-						className='w-full text-white outline-none rounded-[12px] text-center py-3 text-[18px] font-[regular] bg-blue'
+						className='w-full text-white outline-none rounded-[12px] text-center xs:py-2 md:py-3 xs:text-[16px] md:text-[18px] font-[regular] bg-blue'
 						whileHover={{ scale: 1.03 }}
 						whileTap={{ scale: 0.97 }}
 						variants={itemVariants}

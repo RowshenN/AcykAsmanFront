@@ -31,7 +31,7 @@ const DownloadDoneWork = () => {
 
 	return (
 		<motion.div
-			className='mb-[138px] w-full border border-border dark:border-borderDark rounded-[28px] bg-[#F8F8F8] dark:bg-[#313133] flex items-center justify-center py-[25px]'
+			className='xs:mb-10 md:mb-[138px] w-full border border-border dark:border-borderDark rounded-[28px] bg-[#F8F8F8] dark:bg-[#313133] flex items-center justify-center px-3 xs:py-4 md:py-[25px]'
 			variants={containerVariants}
 			initial='hidden'
 			whileInView='visible'
@@ -43,7 +43,7 @@ const DownloadDoneWork = () => {
 				variants={itemVariants}
 			>
 				<motion.h1
-					className='text-[32px] font-[bold] dark:text-white'
+					className='xs:text-[22px] md:text-[27px] lg:text-[32px] font-[bold] dark:text-white'
 					variants={itemVariants}
 				>
 					Mahabat we ýerine ýetirilen işler bir ýerde
@@ -53,17 +53,18 @@ const DownloadDoneWork = () => {
 					variants={itemVariants}
 				></motion.div>
 				<motion.p
-					className='text-[20px] font-[regular] dark:text-white'
+					className='xs:text-[16px] md:text-[20px] font-[regular] dark:text-white'
 					variants={itemVariants}
 				>
 					Kompaniýa mahabat kitapçasy (Katalogy)
 				</motion.p>
 				<motion.button
-					className='w-fit flex items-center justify-center gap-[10px] bg-blue outline-none text-white rounded-[28px] py-[14.5px] px-[44px] text-[16px] font-[regular]'
+					className='w-fit flex items-center justify-center gap-[10px] bg-blue outline-none text-white rounded-[28px] xs:py-2 md:py-[14.5px] xs:px-7 md:px-[44px] text-[16px] font-[regular]'
 					whileHover={{ scale: 1.05 }}
 					whileTap={{ scale: 0.95 }}
 				>
-					<BsDownload className='text-[24px] text-white' /> Ýüklap almak
+					<BsDownload className='xs:text-[20px] md:text-[24px] text-white' />{' '}
+					Ýüklap almak
 				</motion.button>
 			</motion.div>
 		</motion.div>

@@ -8,11 +8,11 @@ const LongPhotoCard = () => {
 			className='w-full flex items-center justify-start py-[18px] cursor-pointer px-[18px] hover:bg-[#F3F3F3] dark:hover:bg-[#313133] dark:text-white transition-all duration-200  '
 		>
 			<div className='flex w-[50%] items-center justify-start gap-[22px] '>
-				<div className='max-w-[334px] border rounded-[20px] border-border dark:border-borderDark h-full w-full max-h-[296px] '>
+				<div className='border border-border dark:border-borderDark  rounded-[20px] xs:max-h-[70%] md:max-h-[360px] h-full w-full  '>
 					<img
 						src={surat}
 						alt='image'
-						className='w-full rounded-[20px] h-full object-cover'
+						className='w-full h-full object-cover rounded-[20px]'
 					/>
 				</div>
 

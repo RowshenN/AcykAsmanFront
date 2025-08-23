@@ -8,7 +8,6 @@ import surat from '../../images/carouselImg.png'
 const NewsInner = () => {
 	const navigate = useNavigate()
 
-	// Framer Motion Variants
 	const containerVariants = {
 		hidden: {},
 		visible: { transition: { staggerChildren: 0.15 } },

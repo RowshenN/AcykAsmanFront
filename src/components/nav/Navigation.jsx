@@ -38,7 +38,6 @@ const Navigation = () => {
 		setOpen(false)
 	}, [location])
 
-	// Framer Motion variants
 	const containerVariants = {
 		hidden: {},
 		visible: { transition: { staggerChildren: 0.15 } },
@@ -334,7 +333,7 @@ const Navigation = () => {
 						>
 							<div
 								onClick={() => setIsVideoOpen(false)}
-								className='border absolute top-3 right-5 border-white rounded-full py-1 px-3 flex items-center justify-center'
+								className='border z-40 cursor-pointer absolute top-3 right-5 border-white rounded-full py-1 px-3 flex items-center justify-center'
 							>
 								<button className='text-white text-2xl z-50'>✕</button>
 							</div>

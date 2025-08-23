@@ -10,7 +10,7 @@ const Services = () => {
 	const location = useLocation()
 	const [name, setName] = useState('all')
 
-	// Initialize AOS
+	// Initialize AOS (optional, for elements that still use it)
 	useEffect(() => {
 		AOS.init({
 			duration: 1000,
@@ -56,21 +56,36 @@ const Services = () => {
 
 	return (
 		<div className='w-full'>
-			<div className='flex mb-[52px] items-center justify-center'>
-				<div className='w-[55%] mx-auto'>
-					<h1 className='text-[48px] mb-[48px] text-center font-[semibold] text-blue'>
+			{/* Top heading + filters with mount animation */}
+			<motion.div
+				className='flex xs:mb-5 md:mb-[52px] items-center justify-center'
+				initial='hidden'
+				animate='visible'
+				variants={containerVariants}
+			>
+				<motion.div
+					className='xs:w-full sm:w-[70%] lg:w-[55%] mx-auto'
+					variants={itemVariants}
+				>
+					<motion.h1
+						className='xs:text-[20px] md:text-[30px] lg:text-[48px] xs:mb-5 md:mb-[48px] text-center font-[semibold] text-blue'
+						variants={itemVariants}
+					>
 						Her pikiri hakykata öwürmek üçin hyzmatlaryň doly spektrini
 						hödürleýäris
-					</h1>
+					</motion.h1>
 
-					<div className='w-full flex items-center justify-between'>
+					<motion.div
+						className='w-full flex items-center xs:justify-center xs:gap-2 md:gap-0 md:justify-between'
+						variants={itemVariants}
+					>
 						<div
 							onClick={() => setName('all')}
 							className={`${
 								name === 'all'
 									? 'bg-blue text-white '
 									: ' bg-white dark:bg-dark dark:text-white text-black '
-							}  border border-border dark:border-borderDark dark:hover:bg-blue rounded-full cursor-pointer hover:bg-blue/80 hover:text-white transition-all duration-200 py-[13px] px-[91px] text-[18px] font-[regular]`}
+							}  border border-border dark:border-borderDark dark:hover:bg-blue rounded-full cursor-pointer hover:bg-blue/80 hover:text-white transition-all duration-200 xs:py-1 md:py-[13px] xs:px-4 md:px-[91px] xs:text-[16px] md:text-[18px] font-[regular]`}
 						>
 							<p>Ahlisi</p>
 						</div>
@@ -81,7 +96,7 @@ const Services = () => {
 								name === 'photos'
 									? 'bg-blue text-white '
 									: ' bg-white dark:bg-dark dark:text-white text-black '
-							}  border border-border dark:border-borderDark dark:hover:bg-blue rounded-full cursor-pointer hover:bg-blue/80 hover:text-white transition-all duration-200 py-[13px] px-[91px] text-[18px] font-[regular]`}
+							}  border border-border dark:border-borderDark dark:hover:bg-blue rounded-full cursor-pointer hover:bg-blue/80 hover:text-white transition-all duration-200 xs:py-1 md:py-[13px] xs:px-4 md:px-[91px] xs:text-[16px] md:text-[18px] font-[regular]`}
 						>
 							<p>Photo</p>
 						</div>
@@ -92,18 +107,18 @@ const Services = () => {
 								name === 'videos'
 									? 'bg-blue text-white '
 									: ' bg-white dark:bg-dark dark:text-white text-black '
-							}  border border-border dark:border-borderDark dark:hover:bg-blue rounded-full cursor-pointer hover:bg-blue/80 hover:text-white transition-all duration-200 py-[13px] px-[91px] text-[18px] font-[regular]`}
+							}  border border-border dark:border-borderDark dark:hover:bg-blue rounded-full cursor-pointer hover:bg-blue/80 hover:text-white transition-all duration-200 xs:py-1 md:py-[13px] xs:px-4 md:px-[91px] xs:text-[16px] md:text-[18px] font-[regular]`}
 						>
 							<p>Wideo</p>
 						</div>
-					</div>
-				</div>
-			</div>
+					</motion.div>
+				</motion.div>
+			</motion.div>
 
 			{/* Cards with animations */}
 			<AnimatePresence mode='wait'>
 				<motion.div
-					className='w-full grid grid-cols-taslama-cards gap-9'
+					className='w-full grid md:gap-9 xs:grid-cols-2 md:grid-cols-taslama-cards xs:gap-2'
 					variants={containerVariants}
 					initial='hidden'
 					animate='visible'

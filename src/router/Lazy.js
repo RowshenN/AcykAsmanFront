@@ -1,6 +1,5 @@
 import { lazy } from 'react'
 
-export const Works = lazy(() => import('../pages/works/Works'))
 export const News = lazy(() => import('../pages/news/News'))
 export const NewsInner = lazy(() => import('../pages/news/NewsInner'))
 export const Services = lazy(() => import('../pages/services/Services'))

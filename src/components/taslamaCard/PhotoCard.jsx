@@ -4,7 +4,7 @@ import surat from '../../images/cardImage.png'
 const PhotoCard = () => {
 	return (
 		<Link to={'/services/inner?type=photo'} className='relative'>
-			<div className='absolute bg-border/30 dark:bg-borderDark/30 rounded-[6px] py-1 px-[10px] text-white xs:text-[14px] md:text-[18px] font-[regular] top-[2%] left-[3%] '>
+			<div className='absolute bg-border/30 dark:bg-borderDark/30 rounded-[6px] py-1 px-[10px] text-white xs:text-[14px] md:text-[18px] font-[regular] xs:top-[5%] md:top-[2%] xs:left-[6%] md:left-[3%] '>
 				<p>photo</p>
 			</div>
 

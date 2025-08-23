@@ -13,7 +13,6 @@ export default function VideoPlayer({ src }) {
 					env_key: 'ENV_KEY',
 					player_name: 'Main Player',
 					player_init_time: initTime,
-					// ...
 				},
 			})
 		}
@@ -24,7 +23,6 @@ export default function VideoPlayer({ src }) {
 			controls
 			ref={videoRef}
 			src={src}
-			// poster={surat}
 			className='w-full h-full max-h-[90vh] rounded-[20px] '
 		/>
 	)
