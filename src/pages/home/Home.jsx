@@ -22,7 +22,6 @@ const Home = () => {
   return (
     <div className="w-full h-full">
       <HomeBanner />
-      <h1>Salam Rowsen</h1>
 
       {/* Grid with animations */}
       <motion.div
