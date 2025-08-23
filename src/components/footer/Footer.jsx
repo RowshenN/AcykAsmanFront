@@ -1,173 +1,140 @@
-import React, { useContext } from "react";
-
-import logo from "../../images/footer-logo.svg";
-import icon_1 from "../../images/footer-icon-1.svg";
-import icon_2 from "../../images/footer-icon-2.svg";
-import icon_3 from "../../images/footer-icon-3.svg";
-import icon_4 from "../../images/footer-icon-4.svg";
-import message from "../../images/Message_alt_fill.svg";
-import phone from "../../images/Phone_fill.svg";
-import pin from "../../images/Pin_fill.svg";
-import { SebedimContext } from "../../context/Context";
+import AOS from 'aos'
+import 'aos/dist/aos.css'
+import { motion } from 'framer-motion'
+import { useEffect } from 'react'
+import {
+	FaInstagram,
+	FaTelegramPlane,
+	FaTiktok,
+	FaWhatsapp,
+	FaYoutube,
+} from 'react-icons/fa'
+import { FiPhone } from 'react-icons/fi'
+import { MdEmail } from 'react-icons/md'
+import { Link } from 'react-router-dom'
+import logo from '../../images/logo.png'
 
 const Footer = () => {
-  const currentDate = new Date();
-  const year = currentDate.getFullYear();
+	useEffect(() => {
+		AOS.init({
+			duration: 1000,
+			once: false,
+			easing: 'ease-out',
+		})
+	}, [])
 
-  const formattedDate = `${year}`;
-  const { dil } = useContext(SebedimContext);
-  return (
-    <div className="w-full border-t border-[#DCDCDC] pt-[66px]">
-      <div className="sm:w-[90%] md:w-[80%] mx-auto mb-[43px] ">
-        <div className="w-full sm:flex-col lg:flex-row flex items-center justify-between">
-          <div className="flex sm:w-full lg:w-[70%] items-baseline flex-col justify-start">
-            <div className="w-fit ">
-              <img src={logo} alt="logo" className="w-full object-contain" />
-            </div>
+	const containerVariants = {
+		hidden: {},
+		visible: { transition: { staggerChildren: 0.2 } },
+	}
 
-            <p className="text-[#6A6A6A] sm:text-[14px] md:text-[16px] sm:w-full md:w-[70%] font-[sans-medium] mt-[25px] mb-[37px] ">
-              {dil === "tk"
-                ? "Ygtybarly ätiýaçlandyryş – Siziň ynamdar goragyňyz!"
-                : dil === "ru"
-                ? "Ygtybarly ätiýaçlandyryş – Ваша надежная защита!"
-                : "Ygtybarly ätiýaçlandyryş – Your Trusted Protection!"}
-            </p>
+	const itemVariants = {
+		hidden: { opacity: 0, y: 20 },
+		visible: {
+			opacity: 1,
+			y: 0,
+			transition: { duration: 0.6, ease: 'easeOut' },
+		},
+	}
 
-            <div className="sm:flex lg:hidden mb-[48px] w-full flex-col items-baseline justify-end ">
-              <p className="text-[#34C2AA] sm:text-[24px] md:text-[36px] font-[sans-medium] ">
-                {dil === "tk"
-                  ? "Habarlaşmak üçin"
-                  : dil === "ru"
-                  ? "Обращайтесь к нам"
-                  : "Contact us"}
-              </p>
+	return (
+		<motion.footer
+			className='w-full md:block xs:hidden mt-[130px] bg-[#F8F8F8] dark:bg-[#313133] border rounded-[28px] border-border dark:border-[#797979] divide-y divide-border dark:divide-[#797979]'
+			variants={containerVariants}
+			initial='hidden'
+			whileInView='visible'
+			viewport={{ once: false }}
+			data-aos='fade-up'
+		>
+			{/* Manager Card */}
+			<motion.div
+				className='w-full flex py-[33px] items-center justify-center'
+				variants={itemVariants}
+			>
+				<div className='w-full mt-[-80px] bg-white dark:bg-[#313133] shadow-md max-w-[520px] border border-border dark:border-[#797979] rounded-[15px] flex flex-col sm:flex-row items-center justify-between divide-y sm:divide-y-0 sm:divide-x divide-border dark:divide-[#797979] py-3 px-[34px]'>
+					{/* Manager Info */}
+					<div className='flex w-full items-center justify-center sm:justify-start'>
+						<p className='text-[16px] font-semibold text-[#656565] dark:text-white'>
+							Manager: <span>WekilOS</span>
+						</p>
+					</div>
 
-              <div className="flex items-center justify-start gap-4 mt-[22px] mb-[29px] ">
-                <img src={message} alt="icon" />
-                <p className="text-[#6A6A6A] sm:text-[14px] md:text-[16px] font-[sans-medium] italic">
-                  info@ygtybarly.com.tm
-                </p>
-              </div>
+					{/* Contact */}
+					<div className='flex flex-col gap-3 w-full items-start justify-center pl-4'>
+						<div className='flex items-center gap-2'>
+							<FiPhone className='text-blue text-[20px]' />
+							<p className='font-[semibold] text-[16px] dark:text-white'>
+								+993 67 77 77 77
+							</p>
+						</div>
+						<div className='flex items-center gap-2'>
+							<MdEmail className='text-blue text-[20px]' />
+							<p className='font-[semibold] text-[16px] dark:text-white'>
+								name@gmail.com
+							</p>
+						</div>
+					</div>
+				</div>
+			</motion.div>
 
-              <div className="flex items-start justify-center gap-4">
-                <img src={phone} alt="icon" />
-                <div className="w-fit text-[#6A6A6A] sm:text-[14px] md:text-[16px] font-[sans-medium] italic ">
-                  <div className="flex items-center justify-start gap-8 mb-[10px] ">
-                    <p>+993 60 204061</p>
-                    <p>+993 62 576006</p>
-                  </div>
+			{/* Middle Section */}
+			<motion.div
+				className='flex flex-col md:flex-row items-center justify-between px-84 mx-auto py-3 gap-6'
+				variants={itemVariants}
+			>
+				{/* Logo */}
+				<Link to={'/'}>
+					<motion.div
+						className='h-[104px] cursor-pointer'
+						variants={itemVariants}
+					>
+						<img src={logo} alt='logo' className='h-full w-auto object-cover' />
+					</motion.div>
+				</Link>
 
-                  <div className="flex items-center justify-start gap-8">
-                    <p>+993 12 957696</p>
-                    <p>+993 12 957698</p>
-                  </div>
-                </div>
-              </div>
+				{/* Address */}
+				<motion.p
+					className='text-blue text-center text-[18px] font-[semibold] max-w-[30%] leading-relaxed'
+					variants={itemVariants}
+				>
+					FDBC0463, Compass Building, Al Shohada Road, Al Hamra Industrial
+					Zone-FZ, Ras Al Khaimah, United Arab Emirates.
+				</motion.p>
 
-              <div className="flex items-center justify-start gap-4 mt-[22px]">
-                <img src={pin} alt="icon" />
-                <p className="text-[#6A6A6A] sm:text-[14px] md:text-[16px] font-[sans-medium] italic">
-                  Aşgabat şäheri, Oguzhan köçe, 203 jaý
-                </p>
-              </div>
-            </div>
+				{/* Social Icons */}
+				<motion.div
+					className='flex items-center justify-center gap-[14px]'
+					variants={itemVariants}
+				>
+					{[FaInstagram, FaTelegramPlane, FaWhatsapp, FaTiktok, FaYoutube].map(
+						(Icon, i) => (
+							<motion.a
+								key={i}
+								href='#'
+								className='p-2 rounded-lg border shadow-md bg-white border-[#EEEEEE] dark:border-[#797979] transition'
+								whileHover={{ scale: 1.1 }}
+								whileTap={{ scale: 0.95 }}
+								variants={itemVariants}
+							>
+								<Icon className='text-xl' />
+							</motion.a>
+						)
+					)}
+				</motion.div>
+			</motion.div>
 
-            <div className="w-full flex items-center justify-start sm:gap-[18px] md:gap-6 sm:text-[14px] md:text-[16px] font-[sans-medium] ">
-              <a href="#home" className="cursor-pointer whitespace-nowrap">
-                {dil === "tk"
-                  ? "Baş sahypa"
-                  : dil === "ru"
-                  ? "Главная"
-                  : "Home page"}
-              </a>
-              <a href="#services" className="cursor-pointer whitespace-nowrap">
-                {dil === "tk"
-                  ? "Hyzmatlar"
-                  : dil === "ru"
-                  ? "Сервис"
-                  : "Services"}
-              </a>
-              <a href="#about" className="cursor-pointer whitespace-nowrap">
-                {dil === "tk"
-                  ? "Biz barada"
-                  : dil === "ru"
-                  ? "О нас"
-                  : "About us"}
-              </a>
-              <a href="#clients" className="cursor-pointer whitespace-nowrap">
-                {dil === "tk"
-                  ? "Müşderiler"
-                  : dil === "ru"
-                  ? "Клиенты"
-                  : "Clients"}
-              </a>
-            </div>
+			{/* Copyright */}
+			<motion.div
+				className='w-full pt-[33px] pb-[22px] flex items-center justify-center'
+				variants={itemVariants}
+			>
+				<p className='text-[#3D3D3D] dark:text-[#FFFFFF] text-[14px] font-regular text-center'>
+					Copyright © 2025 •{' '}
+					<span className='font-bold'>Açyk Asman Ýyldyzy</span>
+				</p>
+			</motion.div>
+		</motion.footer>
+	)
+}
 
-            <div className="flex w-full items-center sm:justify-center md:justify-start gap-[18px] mt-[37px] ">
-              <img src={icon_1} alt="icon" className="cursor-pointer" />
-              <img src={icon_2} alt="icon" className="cursor-pointer" />
-              <img src={icon_3} alt="icon" className="cursor-pointer" />
-              <img src={icon_4} alt="icon" className="cursor-pointer" />
-            </div>
-          </div>
-
-          <div className="sm:hidden w-[40%] lg:flex flex-col items-baseline justify-end ">
-            <p className="text-[#34C2AA] text-[36px] font-[sans-medium] ">
-              {dil === "tk"
-                ? "Habarlaşmak üçin"
-                : dil === "ru"
-                ? "Обращайтесь к нам"
-                : "Contact us"}
-            </p>
-
-            <div className="flex items-center justify-start gap-4 mt-[22px] mb-[29px] ">
-              <img src={message} alt="icon" />
-              <p className="text-[#6A6A6A] sm:text-[14px] md:text-[16px] font-[sans-medium] italic ">
-                info@ygtybarly.com.tm
-              </p>
-            </div>
-
-            <div className="flex items-start justify-center gap-4">
-              <img src={phone} alt="icon" />
-              <div className="w-fit text-[#6A6A6A] sm:text-[14px] md:text-[16px] font-[sans-medium] italic ">
-                <div className="flex items-center justify-start gap-8 mb-[10px] ">
-                  <p>+993 60 204061</p>
-                  <p>+993 62 576006</p>
-                </div>
-
-                <div className="flex items-center justify-start gap-8">
-                  <p>+993 12 957696</p>
-                  <p>+993 12 957698</p>
-                </div>
-              </div>
-            </div>
-
-            <div className="flex items-center justify-start gap-4 mt-[22px]">
-              <img src={pin} alt="icon" />
-              <p className="text-[#6A6A6A] sm:text-[14px] md:text-[16px] font-[sans-medium] italic">
-                Aşgabat şäheri, Oguzhan köçe, 203 jaý
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div className="w-full py-6 border-t border-[#DCDCDC]">
-        <div className="w-[80%] mx-auto flex sm:items-center sm:gap-5 md:gap-0 md:items-center md:flex-row sm:flex-col sm:justify-center md:justify-between text-[#6A6A6A] text-[16px] font-[sans-medium] ">
-          <p className="md:text-left sm:text-center ">
-            © Copyright {formattedDate} "Ygtybarly ätiýaçlandyryş"
-          </p>
-          <p>
-            {dil === "tk"
-              ? "@Ähli hukuklar goralan"
-              : dil === "ru"
-              ? "@Все права защищены"
-              : "@All rights reserved"}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-};
-
-export default Footer;
+export default Footer
