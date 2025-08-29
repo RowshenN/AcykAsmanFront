@@ -90,7 +90,7 @@ const Home = () => {
 			<DownloadDoneWork />
 			<ContactUs />
 
-			{/* Send Email Section */}
+			{/* Send Email */}
 			<motion.div
 				className='w-full border border-border dark:border-borderDark bg-[#F8F8F8] dark:bg-[#313133] xs:py-2 sm:py-5 md:py-[45px] xs:px-9 md:px-[71px] rounded-[28px] md:gap-0 xs:gap-5 md:flex-row xs:flex-col flex items-center justify-between'
 				initial={{ opacity: 0 }}

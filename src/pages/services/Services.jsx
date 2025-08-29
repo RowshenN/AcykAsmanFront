@@ -8,7 +8,6 @@ import VideoCard from '../../components/taslamaCard/VideoCard'
 const Services = () => {
 	const [name, setName] = useState('all')
 
-	// Initialize AOS (optional, for elements that still use it)
 	useEffect(() => {
 		AOS.init({
 			duration: 1000,
@@ -32,7 +31,6 @@ const Services = () => {
 		},
 	}
 
-	// Decide which cards to show
 	const cards = [
 		<PhotoCard key='1' />,
 		<VideoCard key='2' />,
@@ -54,7 +52,6 @@ const Services = () => {
 
 	return (
 		<div className='w-full'>
-			{/* Top heading + filters with mount animation */}
 			<motion.div
 				className='flex xs:mb-5 md:mb-[52px] items-center justify-center'
 				initial='hidden'
@@ -120,7 +117,7 @@ const Services = () => {
 					variants={containerVariants}
 					initial='hidden'
 					animate='visible'
-					key={name} // re-render animation on filter change
+					key={name}
 				>
 					{filteredCards.map((card, idx) => (
 						<motion.div

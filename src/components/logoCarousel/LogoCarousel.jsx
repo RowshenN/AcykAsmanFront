@@ -51,11 +51,11 @@ const LogosCarousel = () => {
 			</motion.div>
 
 			<div className='relative w-full py-6 overflow-hidden'>
-				{/* Fade edges */}
+				{/*  edges */}
 				<div className='pointer-events-none absolute left-0 top-0 h-full xs:w-8 md:w-20 bg-gradient-to-r from-white/50 dark:from-black/30 to-transparent z-10' />
 				<div className='pointer-events-none absolute right-0 top-0 h-full xs:w-8 md:w-20 bg-gradient-to-l from-white/50 dark:from-black/30 to-transparent z-10' />
 
-				{/* Ticker viewport */}
+				{/*  viewport */}
 				<div className='w-full overflow-hidden'>
 					<motion.div
 						className='flex w-max items-center xs:gap-3 md:gap-6 animate-logo-scroll will-change-transform'
@@ -79,7 +79,7 @@ const LogosCarousel = () => {
 				</div>
 			</div>
 
-			{/* Component-scoped styles */}
+			{/* animation*/}
 			<style>{`
         @keyframes logo-scroll-x {
           0% { transform: translateX(0); }

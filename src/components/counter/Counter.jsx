@@ -5,9 +5,7 @@ const Counter = ({ end, duration = 2 }) => {
 
 	useEffect(() => {
 		let start = 0
-		// Total updates per second
 		const incrementTime = 50
-		// Calculate increment per tick
 		const increment = end / ((duration * 1000) / incrementTime)
 
 		const timer = setInterval(() => {
