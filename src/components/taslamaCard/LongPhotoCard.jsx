@@ -29,7 +29,7 @@ const LongPhotoCard = () => {
 				</div>
 			</div>
 
-			<div className=' xs:pr-3 md:pr-0 w-1/2 flex items-center xs:justify-end md:justify-center '>
+			<div className=' w-1/2 flex items-center xs:justify-end md:justify-center '>
 				<p>15.05.2025</p>
 			</div>
 		</Link>
