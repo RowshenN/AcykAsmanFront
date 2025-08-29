@@ -34,5 +34,6 @@
 
 body {
 	scroll-behavior: smooth !important;
+	overflow-x: hidden !important;
 	margin: 0;
 }

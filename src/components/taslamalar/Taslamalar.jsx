@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react'
 import { FaAlignLeft, FaThLarge } from 'react-icons/fa'
 import { Link } from 'react-router-dom'
 import LongPhotoCard from '../taslamaCard/LongPhotoCard'
-import PhotoCard from '../taslamaCard/PhotoCard'
+import VideoCard from '../taslamaCard/VideoCard'
 // import LongVideoCard from '../taslamaCard/LongVideoCard'
 // import VideoCard from '../taslamaCard/VideoCard'
 
@@ -103,8 +103,8 @@ const Taslamalar = () => {
 									}}
 									className='w-full md:hover:bg-[#F3F3F3] rounded-[20px] relative cursor-pointer md:px-[14px] xs:px-2 pt-[10px] xs:pb-5 md:pb-[35px]  dark:hover:bg-[#313133] transition-all duration-200'
 								>
-									<PhotoCard />
-									{/* <VideoCard /> */}
+									{/* <PhotoCard /> */}
+									<VideoCard />
 								</motion.div>
 							))}
 						</motion.div>

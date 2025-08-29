@@ -1,29 +1,29 @@
-import React, { useState, useEffect, createContext } from "react";
+import { createContext, useEffect, useState } from 'react'
 
-export const SebedimContext = createContext();
+export const SebedimContext = createContext()
 
-const SebedimContextProvider = (props) => {
-  let [dil, setDil] = useState();
-  useEffect(() => {
-    let dilData = localStorage.getItem("TDYEDil");
-    if (dilData) {
-      setDil(JSON.parse(dilData));
-    } else {
-      setDil("tm");
-      localStorage.setItem("TDYEDil", JSON.stringify("tm"));
-    }
-  }, []);
+const SebedimContextProvider = props => {
+	let [dil, setDil] = useState()
+	useEffect(() => {
+		let dilData = localStorage.getItem('TDYEDil')
+		if (dilData) {
+			setDil(JSON.parse(dilData))
+		} else {
+			setDil('tm')
+			localStorage.setItem('TDYEDil', JSON.stringify('tm'))
+		}
+	}, [])
 
-  const ChangeDil = (event) => {
-    setDil(event);
-    localStorage.setItem("TDYEDil", JSON.stringify(event));
-  };
+	const ChangeDil = event => {
+		setDil(event)
+		localStorage.setItem('TDYEDil', JSON.stringify(event))
+	}
 
-  return (
-    <SebedimContext.Provider value={{ dil, ChangeDil }}>
-      {props.children}
-    </SebedimContext.Provider>
-  );
-};
+	return (
+		<SebedimContext.Provider value={{ dil, ChangeDil }}>
+			{props.children}
+		</SebedimContext.Provider>
+	)
+}
 
-export default SebedimContextProvider;
+export default SebedimContextProvider
