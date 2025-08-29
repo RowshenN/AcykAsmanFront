@@ -9,7 +9,6 @@ import DownloadDoneWork from "../../components/download/DownloadDoneWork";
 import DoneWork from "../../components/homeDoneWork/DoneWork";
 import LogosCarousel from "../../components/logoCarousel/LogoCarousel";
 import Taslamalar from "../../components/taslamalar/Taslamalar";
-
 const Home = () => {
   useEffect(() => {
     AOS.init({
