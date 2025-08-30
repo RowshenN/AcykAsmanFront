@@ -487,11 +487,11 @@ const Navigation = () => {
 				</motion.div>
 
 				{/* burger button */}
-				<div className='xs:flex md:hidden py-[10px] px-4 border border-border dark:border-borderDark rounded-[24px] items-center justify-center cursor-pointer'>
-					<RxHamburgerMenu
-						onClick={showDrawer}
-						className='text-[20px] dark:text-white '
-					/>
+				<div
+					onClick={showDrawer}
+					className='xs:flex md:hidden py-[10px] px-4 border border-border dark:border-borderDark rounded-[24px] items-center justify-center cursor-pointer'
+				>
+					<RxHamburgerMenu className='text-[20px] dark:text-white ' />
 				</div>
 			</motion.div>
 

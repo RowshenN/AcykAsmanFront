@@ -111,7 +111,7 @@ const Taslamalar = () => {
 					) : (
 						<motion.div
 							key='list'
-							className='flex flex-col items-center justify-center w-full divide-y divide-border'
+							className='flex flex-col items-center justify-center w-full divide-y divide-border dark:divide-borderDark'
 							variants={{
 								hidden: {},
 								visible: { transition: { staggerChildren: 0.2 } },
