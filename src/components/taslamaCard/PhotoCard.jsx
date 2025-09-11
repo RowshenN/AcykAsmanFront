@@ -1,40 +1,43 @@
-import { Link } from 'react-router-dom'
-import Carousel from '../carousel/Carousel'
+import { Link } from "react-router-dom";
+import Carousel from "../carousel/Carousel";
 
 import {
-	default as surat,
-	default as surat2,
-	default as surat3,
-} from '../../images/cardImage.png'
+  default as surat,
+  default as surat2,
+  default as surat3,
+} from "../../images/cardImage.png";
+import { SebedimContext } from "../../utils/Context";
+import { useContext } from "react";
 
-const images = [surat, surat2, surat3]
+const images = [surat, surat2, surat3];
 
 const PhotoCard = () => {
-	return (
-		<Link
-			to={'/services/inner?type=photo'}
-			className='relative overflow-hidden'
-		>
-			{/* tag */}
-			<div className='absolute bg-border/30 dark:bg-borderDark/30 rounded-[6px] py-1 px-[10px] text-white xs:text-[14px] md:text-[18px] font-[regular] xs:top-[5%] md:top-[2%] xs:left-[6%] md:left-[3%] z-10'>
-				<p>photo</p>
-			</div>
+  const { dil } = useContext(SebedimContext);
+  return (
+    <Link
+      to={"/services/inner?type=photo"}
+      className="relative overflow-hidden"
+    >
+      {/* tag */}
+      <div className="absolute bg-border/30 dark:bg-borderDark/30 rounded-[6px] py-1 px-[10px] text-white xs:text-[14px] md:text-[18px] font-[regular] xs:top-[5%] md:top-[2%] xs:left-[6%] md:left-[3%] z-10">
+        <p>{dil === "tm" ? "Surat" : dil === "ru" ? "Фото" : "Photo"}</p>
+      </div>
 
-			<div className='border border-border dark:border-borderDark rounded-[20px] xs:max-h-[70%] md:max-h-[360px] h-full w-full'>
-				<Carousel images={images} />
-			</div>
+      <div className="border border-border dark:border-borderDark rounded-[20px] xs:max-h-[70%] md:max-h-[360px] h-full w-full">
+        <Carousel images={images} />
+      </div>
 
-			{/* text */}
-			<div className='xs:mt-3 md:mt-6 dark:text-white w-full'>
-				<h1 className='xs:mb-1 leading-tight md:mb-[10px] xs:text-[18px] md:text-[24px] font-[semibold] '>
-					Concert New World
-				</h1>
-				<p className='xs:text-[14px] xs:line-clamp-2 md:text-[18px] font-[regular]'>
-					An immersive multimedia exhibition at the art space Luminar
-				</p>
-			</div>
-		</Link>
-	)
-}
+      {/* text */}
+      <div className="xs:mt-3 md:mt-6 dark:text-white w-full">
+        <h1 className="xs:mb-1 leading-tight md:mb-[10px] xs:text-[18px] md:text-[24px] font-[semibold] ">
+          Concert New World
+        </h1>
+        <p className="xs:text-[14px] xs:line-clamp-2 md:text-[18px] font-[regular]">
+          An immersive multimedia exhibition at the art space Luminar
+        </p>
+      </div>
+    </Link>
+  );
+};
 
-export default PhotoCard
+export default PhotoCard;

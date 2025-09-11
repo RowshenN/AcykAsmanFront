@@ -1,8 +1,10 @@
-import { motion } from "framer-motion"
-import { SlPhone } from "react-icons/sl"
-import CertificatesCarousel from "../../components/certificateCarousel/CertificatesCarousel"
-import ContactUs from "../../components/contactUs/ContactUs"
-import DownloadDoneWork from "../../components/download/DownloadDoneWork"
+import { motion } from "framer-motion";
+import { SlPhone } from "react-icons/sl";
+import CertificatesCarousel from "../../components/certificateCarousel/CertificatesCarousel";
+import ContactUs from "../../components/contactUs/ContactUs";
+import DownloadDoneWork from "../../components/download/DownloadDoneWork";
+import { SebedimContext } from "../../utils/Context";
+import { useContext } from "react";
 
 const AboutUs = () => {
   const containerVariants = {
@@ -19,6 +21,8 @@ const AboutUs = () => {
     },
   };
 
+  const { dil } = useContext(SebedimContext);
+
   return (
     <motion.div
       className="w-full"
@@ -32,8 +36,11 @@ const AboutUs = () => {
         variants={itemVariants}
       >
         <h1 className="text-blue xs:text-[20px] xs:leading-6 md:leading-none md:text-[36px] lg:text-[48px] font-[semibold]">
-          Edýän işlerimize höwesli bolsaňyz, täze mümkinçilikleri açmagy gowy
-          görýän bolsaňyz, siziň bilen duşuşmaga sabyrsyzlyk bilen garaşýarys.
+          {dil === "tm"
+            ? "Edýän işlerimize höwesli bolsaňyz, täze mümkinçilikleri açmagy gowy görýän bolsaňyz, siziň bilen duşuşmaga sabyrsyzlyk bilen garaşýarys."
+            : dil === "ru"
+            ? "Если вас вдохновляет наша работа и вы любите открывать новые возможности, мы с нетерпением ждем встречи с вами."
+            : "If you are passionate about the work we do and enjoy exploring new opportunities, we look forward to meeting you."}
         </h1>
       </motion.div>
 
@@ -55,7 +62,11 @@ const AboutUs = () => {
         <div className="w-full lg:flex-row xs:flex-col flex items-start dark:text-white">
           <div className="w-full xs:pb-4 md:pb-0 xs:border-b lg:border-b-0 lg:border-r border-[#47627F]">
             <p className="text-[14px] xs:text-center md:text-left font-[regular] uppercase mb-2">
-              Company Address
+              {dil === "tm"
+                ? "Kompaniýanyň salgysy"
+                : dil === "ru"
+                ? "Адрес компании"
+                : "Company Address"}
             </p>
             <h1 className="md:text-[28px] xs:text-center md:text-left xs:text-[20px] lg:text-[34px] font-[semibold]">
               Turkmenistan, Ashgabat, Ankara str., 10
