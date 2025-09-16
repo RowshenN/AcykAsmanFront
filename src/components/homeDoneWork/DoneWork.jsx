@@ -1,12 +1,17 @@
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { motion } from "framer-motion";
-import { useContext, useEffect } from "react";
-import surat from "../../images/donework.png";
-
+import { useContext, useEffect, useState } from "react";
 import { SebedimContext } from "../../utils/Context";
+import { useGetAllWorksQuery } from "../../utils/apiSlice/works";
+import { BASE_URL } from "../../utils/Axios";
+import { Link } from "react-router-dom";
 
 const DoneWork = () => {
+  const { dil } = useContext(SebedimContext);
+  const { data: works = [], isLoading } = useGetAllWorksQuery();
+  const [work, setWork] = useState(null);
+
   useEffect(() => {
     AOS.init({
       duration: 1000,
@@ -15,7 +20,16 @@ const DoneWork = () => {
     });
   }, []);
 
-  const { dil } = useContext(SebedimContext);
+  useEffect(() => {
+    if (works.length > 0) {
+      const worksWithImages = works.filter((w) => w.Imgs && w.Imgs.length > 0);
+      if (worksWithImages.length > 0) {
+        const randomWork =
+          worksWithImages[Math.floor(Math.random() * worksWithImages.length)];
+        setWork(randomWork);
+      }
+    }
+  }, [works]);
 
   const containerVariants = {
     hidden: {},
@@ -30,6 +44,24 @@ const DoneWork = () => {
       transition: { duration: 0.6, ease: "easeOut" },
     },
   };
+
+  if (isLoading || !work) {
+    return (
+      <div className="w-full flex items-center justify-center py-10 text-white">
+        Loading...
+      </div>
+    );
+  }
+
+  const title =
+    dil === "tm" ? work.name_tm : dil === "ru" ? work.name_ru : work.name_en;
+
+  const text =
+    dil === "tm" ? work.text_tm : dil === "ru" ? work.text_ru : work.text_en;
+
+  const imageUrl = `${BASE_URL}uploads/work/${work.Imgs[0].src
+    .split("\\")
+    .pop()}`;
 
   return (
     <motion.div
@@ -46,37 +78,31 @@ const DoneWork = () => {
           className="xs:w-full lg:w-[40%] flex pt-3 flex-col"
           variants={itemVariants}
         >
-          <h1 className="text-[31px] mb-6 font-[bold]">
-            Açyk Asman Yyldyzy (LOGO)
-          </h1>
+          <h1 className="text-[31px] mb-6 font-[bold]">{title}</h1>
           <h2 className="xs:text-[16px] md:text-[18px] font-[bold mb-[10px]">
-            Olympic Arena Opening Ceremony
+            {text}
           </h2>
           <div className="bg-white rounded-[5px] py-[5px] px-3 w-fit mb-[11px]">
             <p className="text-[12px] font-[regular] text-black">
-              28 Sent 2017 ý
+              {work.date ? new Date(work.date).toLocaleDateString() : ""}
             </p>
           </div>
-          <p className="xs:text-[15px] md:text-[16px] font-[regular] xs:mb-4 md:mb-[30px]">
-            Olimpiýa arenasynda köp garaşylýan açylyş dabarasy 5000-den gowrak
-            meşhur myhmany garşy aldy we bu dabara dünýäniň millionlarça
-            tomaşaçylaryna göni efirde görkezildi. Sport ussatlygynyň we iň täze
-            täzelikleriň baýramçylygy boldy...
-          </p>
-          <button className="xs:px-5 md:px-[56px] w-fit xs:py-2 md:py-[14px] bg-blue hover:bg-blue/10 border border-white rounded-[28px] text-white">
-            {dil === "tm"
-              ? "Giňişleýin"
-              : dil === "ru"
-              ? "Подробно"
-              : "Detailed"}
-          </button>
+          <Link to={`/work/inner?id=${work.id}`}>
+            <button className="xs:px-5 md:px-[56px] w-fit xs:py-2 md:py-[14px] bg-blue hover:bg-blue/10 border border-white rounded-[28px] text-white">
+              {dil === "tm"
+                ? "Giňişleýin"
+                : dil === "ru"
+                ? "Подробно"
+                : "Detailed"}
+            </button>
+          </Link>
         </motion.div>
 
         {/* image div */}
         <motion.div className="xs:w-full lg:w-[60%]" variants={itemVariants}>
           <img
-            src={surat}
-            alt="surat"
+            src={imageUrl}
+            alt="work"
             className="w-full h-full max-h-[345px] object-cover rounded-[20px]"
           />
         </motion.div>

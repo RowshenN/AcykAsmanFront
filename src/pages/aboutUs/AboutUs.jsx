@@ -61,14 +61,14 @@ const AboutUs = () => {
       >
         <div className="w-full lg:flex-row xs:flex-col flex items-start dark:text-white">
           <div className="w-full xs:pb-4 md:pb-0 xs:border-b lg:border-b-0 lg:border-r border-[#47627F]">
-            <p className="text-[14px] xs:text-center md:text-left font-[regular] uppercase mb-2">
+            <p className="text-[14px] text-left font-[regular] uppercase mb-2">
               {dil === "tm"
                 ? "Kompaniýanyň salgysy"
                 : dil === "ru"
                 ? "Адрес компании"
                 : "Company Address"}
             </p>
-            <h1 className="md:text-[28px] xs:text-center md:text-left xs:text-[20px] lg:text-[34px] font-[semibold]">
+            <h1 className="md:text-[28px] text-left xs:text-[20px] lg:text-[34px] font-[semibold]">
               Turkmenistan, Ashgabat, Ankara str., 10
             </h1>
           </div>

@@ -48,7 +48,7 @@ const LogosCarousel = () => {
         className="w-full flex items-center justify-center xs:mb-3 md:mb-6"
         variants={itemVariants}
       >
-        <h1 className="xs:text-[20px] md:text-[24px] font-[semibold]">
+        <h1 className="xs:text-[20px] xs:text-center md:text-[24px] font-[semibold]">
           {dil === "tm"
             ? "Hyzmatdaş we müşderi tarapyndan ynamdar"
             : dil === "ru"
@@ -57,7 +57,7 @@ const LogosCarousel = () => {
         </h1>
       </motion.div>
 
-      <div className="relative w-full py-6 overflow-hidden">
+      <div className="relative w-full xs:py-3 md:py-6 overflow-hidden">
         {/*  edges */}
         <div className="pointer-events-none absolute left-0 top-0 h-full xs:w-8 md:w-20 bg-gradient-to-r from-white/50 dark:from-black/30 to-transparent z-10" />
         <div className="pointer-events-none absolute right-0 top-0 h-full xs:w-8 md:w-20 bg-gradient-to-l from-white/50 dark:from-black/30 to-transparent z-10" />
@@ -78,7 +78,7 @@ const LogosCarousel = () => {
                 <img
                   src={logo}
                   alt={`logo-${i % logos.length}`}
-                  className="xs:h-[50px] md:h-[75px] w-auto object-contain"
+                  className="xs:h-[45px] md:h-[75px] w-auto object-contain"
                 />
               </motion.div>
             ))}

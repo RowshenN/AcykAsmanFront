@@ -3,9 +3,14 @@ import { useLocation } from "react-router-dom";
 import NewsCard from "../../components/newsCard/NewsCard";
 import { SebedimContext } from "../../utils/Context";
 import { useContext } from "react";
+import { useGetAllNewsQuery } from "../../utils/apiSlice/news";
 
 const News = () => {
   const location = useLocation();
+  const { dil } = useContext(SebedimContext);
+
+  // Fetch news from API
+  const { data: news = [], isLoading, isError } = useGetAllNewsQuery({});
 
   const containerVariants = {
     hidden: {},
@@ -23,9 +28,21 @@ const News = () => {
     },
   };
 
-  const newsArray = [...Array(7)];
+  if (isLoading) {
+    return (
+      <div className="w-full flex items-center justify-center py-10">
+        <p className="text-gray-500 dark:text-gray-300">Loading...</p>
+      </div>
+    );
+  }
 
-  const { dil } = useContext(SebedimContext);
+  if (isError) {
+    return (
+      <div className="w-full flex items-center justify-center py-10">
+        <p className="text-red-500">Failed to load news.</p>
+      </div>
+    );
+  }
 
   return (
     <motion.div
@@ -51,14 +68,14 @@ const News = () => {
         variants={containerVariants}
       >
         <AnimatePresence>
-          {newsArray.map((_, i) => (
+          {news.map((item, i) => (
             <motion.div
-              key={i}
+              key={item.id || i}
               variants={itemVariants}
               initial="hidden"
               animate="visible"
             >
-              <NewsCard />
+              <NewsCard news={item} />
             </motion.div>
           ))}
         </AnimatePresence>

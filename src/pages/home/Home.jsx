@@ -32,7 +32,7 @@ const Home = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (!email || !name) return; // simple validation
+    if (!email || !name) return;
     try {
       await createSubscribe({ name, email }).unwrap();
       message.success("Subscribed successfully!");
@@ -161,6 +161,7 @@ const Home = () => {
           variants={itemVariants}
         >
           <motion.input
+            required
             type="text"
             placeholder={dil === "tm" ? "Ady" : dil === "ru" ? "Имя" : "Name"}
             value={name}
@@ -170,6 +171,7 @@ const Home = () => {
             variants={itemVariants}
           />
           <motion.input
+            required
             type="email"
             value={email}
             onKeyDown={(e) => e.key === "Enter" && handleSubmit(e)}

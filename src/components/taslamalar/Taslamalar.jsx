@@ -4,16 +4,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
 import { FaAlignLeft, FaThLarge } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import LongPhotoCard from "../taslamaCard/LongPhotoCard";
-import VideoCard from "../taslamaCard/VideoCard";
-// import LongVideoCard from '../taslamaCard/LongVideoCard'
-// import VideoCard from '../taslamaCard/VideoCard'
-
+import WorkCard from "../workCard/WorkCard";
 import { SebedimContext } from "../../utils/Context";
+import { useGetAllWorksQuery } from "../../utils/apiSlice/works";
+import LongWorkCard from "../workCard/LongWorkCard";
 
 const Taslamalar = () => {
   const [grid, setGrid] = useState(true);
   const { dil } = useContext(SebedimContext);
+
+  const { data: works = [], isLoading, isError } = useGetAllWorksQuery({});
+
+  console.log("works: ", works);
 
   useEffect(() => {
     AOS.init({
@@ -81,7 +83,7 @@ const Taslamalar = () => {
       </motion.div>
 
       {/* Cards */}
-      <div className="w-full mb-[44px]">
+      <div className="w-full xs:mb-9 md:mb-[44px]">
         <AnimatePresence mode="wait">
           {grid ? (
             <motion.div
@@ -96,9 +98,9 @@ const Taslamalar = () => {
               exit="hidden"
               layout
             >
-              {[...Array(5)].map((_, i) => (
+              {works.map((work) => (
                 <motion.div
-                  key={i}
+                  key={work.id}
                   layout
                   variants={{
                     hidden: { opacity: 0, y: 20 },
@@ -108,10 +110,9 @@ const Taslamalar = () => {
                       transition: { duration: 0.5 },
                     },
                   }}
-                  className="w-full md:hover:bg-[#F3F3F3] rounded-[20px] relative cursor-pointer md:px-[14px] xs:px-2 pt-[10px] xs:pb-5 md:pb-[35px]  dark:hover:bg-[#313133] transition-all duration-200"
+                  className="w-full md:hover:bg-[#F3F3F3] rounded-[20px] relative cursor-pointer md:px-[14px] xs:px-0 pt-[10px] xs:pb-0 md:pb-[35px] dark:hover:bg-[#313133] transition-all duration-200"
                 >
-                  {/* <PhotoCard /> */}
-                  <VideoCard />
+                  <WorkCard service={work} />
                 </motion.div>
               ))}
             </motion.div>
@@ -128,9 +129,9 @@ const Taslamalar = () => {
               exit="hidden"
               layout
             >
-              {[...Array(3)].map((_, i) => (
+              {works.map((work) => (
                 <motion.div
-                  key={i}
+                  key={work.id}
                   layout
                   variants={{
                     hidden: { opacity: 0, y: 20 },
@@ -142,8 +143,7 @@ const Taslamalar = () => {
                   }}
                   className="w-full"
                 >
-                  <LongPhotoCard />
-                  {/* <LongVideoCard /> */}
+                  <LongWorkCard service={work} />
                 </motion.div>
               ))}
             </motion.div>
@@ -152,7 +152,6 @@ const Taslamalar = () => {
       </div>
 
       {/* Button */}
-
       <Link to={"/services"}>
         <motion.div
           className="w-full flex items-center justify-center"

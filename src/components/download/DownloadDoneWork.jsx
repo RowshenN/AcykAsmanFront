@@ -17,13 +17,11 @@ const DownloadDoneWork = () => {
 
   const { dil } = useContext(SebedimContext);
 
-  // Container variants
   const containerVariants = {
     hidden: {},
     visible: { transition: { staggerChildren: 0.2 } },
   };
 
-  // Item variants
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: {

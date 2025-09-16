@@ -2,14 +2,22 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import { AnimatePresence, motion } from "framer-motion";
 import { useContext, useEffect, useState } from "react";
-import PhotoCard from "../../components/taslamaCard/PhotoCard";
-import VideoCard from "../../components/taslamaCard/VideoCard";
+import ServiceCard from "../../components/serviceCard/ServiceCard";
 import { SebedimContext } from "../../utils/Context";
+import {
+  serviceApi,
+  useGetAllServicesQuery,
+} from "../../utils/apiSlice/services";
 
 const Services = () => {
   const [name, setName] = useState("all");
-
   const { dil } = useContext(SebedimContext);
+
+  const {
+    data: services = [],
+    isLoading,
+    isError,
+  } = useGetAllServicesQuery({});
 
   useEffect(() => {
     AOS.init({
@@ -34,24 +42,14 @@ const Services = () => {
     },
   };
 
-  const cards = [
-    <PhotoCard key="1" />,
-    <VideoCard key="2" />,
-    <PhotoCard key="3" />,
-    <VideoCard key="4" />,
-    <PhotoCard key="5" />,
-    <VideoCard key="6" />,
-    <PhotoCard key="7" />,
-    <PhotoCard key="8" />,
-    <VideoCard key="9" />,
-  ];
-
-  const filteredCards = cards.filter((card, idx) => {
+  const filteredServices = services.filter((service) => {
     if (name === "all") return true;
-    if (name === "photos" && card.type === PhotoCard) return true;
-    if (name === "videos" && card.type === VideoCard) return true;
+    if (name === "photos") return service.Imgs && service.Imgs.length > 0;
+    if (name === "videos") return service.Videos && service.Videos.length > 0;
     return false;
   });
+
+  console.log(services);
 
   return (
     <div className="w-full">
@@ -86,7 +84,7 @@ const Services = () => {
                 name === "all"
                   ? "bg-blue text-white "
                   : " bg-white dark:bg-dark dark:text-white text-black "
-              }  border border-border dark:border-borderDark dark:hover:bg-blue rounded-full cursor-pointer hover:bg-blue/80 hover:text-white transition-all duration-200 xs:py-1 md:py-[13px] xs:px-4 md:px-[91px] xs:text-[16px] md:text-[18px] font-[regular]`}
+              } border border-border dark:border-borderDark dark:hover:bg-blue rounded-full cursor-pointer hover:bg-blue/80 hover:text-white transition-all duration-200 xs:py-1 md:py-[13px] xs:px-4 md:px-[91px] xs:text-[16px] md:text-[18px] font-[regular]`}
             >
               <p>{dil === "tm" ? "Ahlisi" : dil === "ru" ? "Всё" : "All"}</p>
             </div>
@@ -97,7 +95,7 @@ const Services = () => {
                 name === "photos"
                   ? "bg-blue text-white "
                   : " bg-white dark:bg-dark dark:text-white text-black "
-              }  border border-border dark:border-borderDark dark:hover:bg-blue rounded-full cursor-pointer hover:bg-blue/80 hover:text-white transition-all duration-200 xs:py-1 md:py-[13px] xs:px-4 md:px-[91px] xs:text-[16px] md:text-[18px] font-[regular]`}
+              } border border-border dark:border-borderDark dark:hover:bg-blue rounded-full cursor-pointer hover:bg-blue/80 hover:text-white transition-all duration-200 xs:py-1 md:py-[13px] xs:px-4 md:px-[91px] xs:text-[16px] md:text-[18px] font-[regular]`}
             >
               <p>{dil === "tm" ? "Surat" : dil === "ru" ? "Фото" : "Photo"}</p>
             </div>
@@ -108,7 +106,7 @@ const Services = () => {
                 name === "videos"
                   ? "bg-blue text-white "
                   : " bg-white dark:bg-dark dark:text-white text-black "
-              }  border border-border dark:border-borderDark dark:hover:bg-blue rounded-full cursor-pointer hover:bg-blue/80 hover:text-white transition-all duration-200 xs:py-1 md:py-[13px] xs:px-4 md:px-[91px] xs:text-[16px] md:text-[18px] font-[regular]`}
+              } border border-border dark:border-borderDark dark:hover:bg-blue rounded-full cursor-pointer hover:bg-blue/80 hover:text-white transition-all duration-200 xs:py-1 md:py-[13px] xs:px-4 md:px-[91px] xs:text-[16px] md:text-[18px] font-[regular]`}
             >
               <p>{dil === "tm" ? "Wideo" : dil === "ru" ? "Видео" : "Video"}</p>
             </div>
@@ -119,20 +117,24 @@ const Services = () => {
       {/* Cards with animations */}
       <AnimatePresence mode="wait">
         <motion.div
-          className="w-full grid md:gap-9 xs:grid-cols-2 md:grid-cols-taslama-cards xs:gap-2"
+          className="w-full grid md:gap-9 xs:grid-cols-2 md:grid-cols-taslama-cards xs:gap-4"
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           key={name}
         >
-          {filteredCards.map((card, idx) => (
+          {filteredServices.map((service, idx) => (
             <motion.div
-              key={idx}
+              key={service.id}
               variants={itemVariants}
-              className="hover:bg-[#F3F3F3] dark:hover:bg-[#313133] transition-all duration-200 rounded-[20px] cursor-pointer px-[14px] pt-[10px] pb-[35px]"
+              className="hover:bg-[#F3F3F3] h-fit dark:hover:bg-[#313133] transition-all duration-200 rounded-[20px] cursor-pointer xs:px-0 md:px-[14px] pt-[10px] xs:pb-0 md:pb-[35px]"
               data-aos="fade-up"
             >
-              {card}
+              {service.Imgs && service.Imgs.length > 0 ? (
+                <ServiceCard service={service} />
+              ) : service.Videos && service.Videos.length > 0 ? (
+                <ServiceCard service={service} />
+              ) : null}
             </motion.div>
           ))}
         </motion.div>

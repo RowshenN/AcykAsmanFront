@@ -110,6 +110,7 @@ const ContactUs = () => {
             variants={itemVariants}
           /> */}
           <motion.input
+            required
             type="text"
             placeholder="Name"
             value={name}
@@ -118,6 +119,7 @@ const ContactUs = () => {
             variants={itemVariants}
           />
           <motion.input
+            required
             type="email"
             placeholder="E-mail"
             value={email}

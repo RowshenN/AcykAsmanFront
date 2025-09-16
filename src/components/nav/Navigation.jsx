@@ -14,6 +14,8 @@ import { useTheme } from "../../utils/ThemeContext";
 import VideoPlayer from "../videPlayer/VideoPlayer";
 
 import { SebedimContext } from "../../utils/Context";
+import { useGetAllWorksQuery } from "../../utils/apiSlice/works";
+import { BASE_URL } from "../../utils/Axios";
 
 const Navigation = () => {
   const location = useLocation();
@@ -23,6 +25,18 @@ const Navigation = () => {
 
   const { dil, ChangeDil } = useContext(SebedimContext);
   const [lang, setLang] = useState(false);
+
+  const { data: works = [], isLoading, isError } = useGetAllWorksQuery({});
+
+  const worksWithVideos = works.filter(
+    (work) => work.Videos && work.Videos.length > 0
+  );
+
+  const randomWork =
+    worksWithVideos[Math.floor(Math.random() * worksWithVideos.length)];
+  const randomVideoSrc = randomWork
+    ? `${BASE_URL}uploads/work/${randomWork.Videos[0].src.split("\\").pop()}`
+    : null;
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -107,7 +121,7 @@ const Navigation = () => {
           key={"left"}
           className="!px-0 !py-0 !my-0 !mx-0"
         >
-          <div className="flex-col relative px-5 py-5 flex items-baseline dark:bg-black h-full text-[16px] justify-start gap-7">
+          <div className="flex-col relative px-5 py-5 flex items-center bg-gradient-light dark:bg-gradient-dark h-[70%] text-[16px] justify-center gap-7">
             <MdOutlineCancel
               className="absolute dark:text-white  top-5 right-5 text-[25px] cursor-pointer "
               onClick={() => setOpen(false)}
@@ -555,7 +569,7 @@ const Navigation = () => {
                   ✕
                 </button>
               </div>
-              <VideoPlayer src={"/videos/video.mp4"} />
+              <VideoPlayer src={randomVideoSrc} />
             </motion.div>
           </motion.div>
         )}
