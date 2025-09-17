@@ -1,4 +1,5 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { BASE_URL } from "../Axios";
 
 const baseUrl = "http://localhost:8080/";
 

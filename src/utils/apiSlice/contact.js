@@ -1,12 +1,12 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
+import { BASE_URL } from "../Axios";
 
 // const baseUrl = process.env.REACT_APP_BASE_URL;
-const baseUrl = "http://localhost:8080/";
 
 export const contactApi = createApi({
   reducerPath: "contactApi",
   baseQuery: fetchBaseQuery({
-    baseUrl,
+    BASE_URL,
     prepareHeaders: (headers) => {
       headers.set("Accept", "application/json");
       return headers;

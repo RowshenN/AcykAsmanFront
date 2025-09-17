@@ -1,7 +1,7 @@
 import mux from "mux-embed";
 import { useEffect, useRef } from "react";
 
-export default function VideoPlayer({ src }) {
+export default function NewsVideoPlayer({ src }) {
   const videoRef = useRef(null);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ export default function VideoPlayer({ src }) {
       controls
       ref={videoRef}
       src={src}
-      className="w-full h-full xs:max-h-[50vh] md:max-h-[80vh] rounded-[20px] "
+      className="w-full h-full xs:h-[175px] md:h-[250px] rounded-[20px] "
     />
   );
 }
