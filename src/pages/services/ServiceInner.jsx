@@ -201,16 +201,15 @@ const ServiceInner = () => {
                 {service.Imgs.map((img, i) => (
                   <div
                     key={i}
-                    className=" md:max-h-[80vh] h-full w-full relative"
+                    className=" md:max-h-[80vh] rounded-[20px] h-full w-full relative"
                   >
                     <img
                       src={`${BASE_URL}uploads/service/${img.src
                         .split("\\")
                         .pop()}`}
                       alt={`carousel-${i}`}
-                      className="w-full xs:min-h-[300px] md:min-h-full h-full object-cover"
+                      className="w-full xs:min-h-[300px] rounded-[20px] md:min-h-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/30 rounded-[20px]"></div>
                   </div>
                 ))}
               </AntCarousel>
@@ -255,7 +254,7 @@ const ServiceInner = () => {
           className="grid xs:grid-cols-2 md:grid-cols-taslama-cards xs:gap-3 md:gap-8 w-full"
           variants={containerVariants}
         >
-          {otherServices.slice(0, 3).map((srv) => (
+          {otherServices.slice(0, 6).map((srv) => (
             <motion.div
               key={srv.id}
               variants={itemVariants}

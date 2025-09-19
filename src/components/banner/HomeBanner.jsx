@@ -135,7 +135,7 @@ const HomeBanner = () => {
         </h1>
         <div>
           <Link
-            to={banners[index]?.link || "#"}
+            to={banners[index]?.link}
             className="border hover:bg-white/40 transition-all duration-200 border-white rounded-[28px] xs:py-[11px] md:py-[14px] xs:px-4 md:px-7"
           >
             {dil === "tm"

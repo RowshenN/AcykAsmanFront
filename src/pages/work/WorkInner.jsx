@@ -208,9 +208,8 @@ const WorkInner = () => {
                         .split("\\")
                         .pop()}`}
                       alt={`carousel-${i}`}
-                      className="w-full xs:min-h-[300px] md:min-h-full h-full object-cover"
+                      className="w-full xs:min-h-[300px] rounded-[20px] md:min-h-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/30 rounded-[20px]"></div>
                   </div>
                 ))}
               </AntCarousel>
@@ -255,7 +254,7 @@ const WorkInner = () => {
           className="grid xs:grid-cols-2 md:grid-cols-taslama-cards xs:gap-3 md:gap-[34px] w-full"
           variants={containerVariants}
         >
-          {otherWorks.slice(0, 3).map((w) => (
+          {otherWorks.slice(0, 6).map((w) => (
             <motion.div
               key={w.id}
               variants={itemVariants}

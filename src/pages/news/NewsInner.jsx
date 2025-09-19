@@ -131,9 +131,8 @@ const NewsInner = () => {
                     <img
                       src={img}
                       alt={`carousel-${i}`}
-                      className="w-full xs:min-h-[300px] md:min-h-full h-full object-cover"
+                      className="w-full xs:min-h-[300px] rounded-[20px] md:min-h-full h-full object-cover"
                     />
-                    <div className="absolute inset-0 bg-black/30 rounded-[20px]"></div>
                   </div>
                 ))}
               </AntCarousel>
@@ -209,7 +208,7 @@ const NewsInner = () => {
             visible: { transition: { staggerChildren: 0.15 } },
           }}
         >
-          {otherNews.slice(0, 3).map((item) => (
+          {otherNews.slice(0, 6).map((item) => (
             <motion.div key={item.id} variants={itemVariants}>
               <NewsCard news={item} />
             </motion.div>

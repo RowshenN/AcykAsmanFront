@@ -1,12 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { BASE_URL } from "../Axios";
 
-// const baseUrl = process.env.REACT_APP_BASE_URL;
-
 export const bannerApi = createApi({
   reducerPath: "bannerApi",
   baseQuery: fetchBaseQuery({
-    BASE_URL,
+    baseUrl: BASE_URL,
     prepareHeaders: (headers) => {
       headers.set("Accept", "application/json");
       return headers;
@@ -19,12 +17,12 @@ export const bannerApi = createApi({
     getAllBanners: builder.query({
       query: (params) => {
         const query = new URLSearchParams({
-          type: params.type || "",
-          order: params.order || 1,
-          deleted: params.deleted || false,
-          name: params.name || "",
+          type: params?.type || "",
+          order: params?.order || 1,
+          deleted: params?.deleted || false,
+          name: params?.name || "",
         }).toString();
-        return `api/banner/all`;
+        return `api/banner/all?${query}`;
       },
       providesTags: ["Banner"],
     }),

@@ -53,7 +53,7 @@ const ServiceCard = ({ service }) => {
               <img
                 src={images[0]}
                 alt={service.name_en || service.name_tm}
-                className="w-full h-full object-cover rounded-[20px]"
+                className="w-full xs:h-[250px] md:h-[360px] object-cover rounded-[20px]"
               />
               <div className="absolute inset-0 bg-black/30 rounded-[20px]"></div>
             </>

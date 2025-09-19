@@ -36,7 +36,7 @@ const Carousel = ({
             <img
               src={img}
               alt={`slide-${i}`}
-              className="w-full h-full xs:h-[250px] md:h-[360px] object-cover rounded-[20px]"
+              className="w-full xs:h-[250px] md:h-[360px] object-cover rounded-[20px]"
             />
             {overlay && (
               <div className="absolute inset-0 bg-black/40 rounded-[20px]"></div>
