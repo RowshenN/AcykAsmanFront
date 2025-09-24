@@ -35,7 +35,7 @@ const AboutUs = () => {
         className="xs:w-full md:w-[80%] mx-auto text-center xs:mb-5 md:mb-[48px]"
         variants={itemVariants}
       >
-        <h1 className="text-blue xs:text-[20px] xs:leading-6 md:leading-none md:text-[36px] lg:text-[48px] font-[semibold]">
+        <h1 className="text-blue xs:text-[20px] xs:leading-6 md:leading-none md:text-[36px] lg:text-[48px] font-[medium]">
           {dil === "tm"
             ? "Edýän işlerimize höwesli bolsaňyz, täze mümkinçilikleri açmagy gowy görýän bolsaňyz, siziň bilen duşuşmaga sabyrsyzlyk bilen garaşýarys."
             : dil === "ru"

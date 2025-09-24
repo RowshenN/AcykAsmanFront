@@ -122,9 +122,7 @@ const WorkInner = () => {
   const hasImages = work.Imgs && work.Imgs.length > 0;
   const hasVideos = work.Videos && work.Videos.length > 0;
   const videos =
-    work.Videos?.map(
-      (vid) => `${BASE_URL}uploads/work/${vid.src.split("\\").pop()}`
-    ) || [];
+    work.Videos?.map((vid) => `${BASE_URL}${vid.src.split("\\").pop()}`) || [];
 
   return (
     <motion.div
@@ -204,9 +202,7 @@ const WorkInner = () => {
                     className=" md:max-h-[80vh] h-full w-full relative"
                   >
                     <img
-                      src={`${BASE_URL}uploads/work/${img.src
-                        .split("\\")
-                        .pop()}`}
+                      src={`${BASE_URL}${img.src.split("\\").pop()}`}
                       alt={`carousel-${i}`}
                       className="w-full xs:min-h-[300px] rounded-[20px] md:min-h-full h-full object-cover"
                     />

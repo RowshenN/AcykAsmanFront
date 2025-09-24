@@ -27,7 +27,7 @@ const Carousel = ({
       onMouseLeave={() => setPaused(false)}
     >
       <motion.div
-        className="flex h-full"
+        className="flex"
         animate={{ x: `-${index * 100}%` }}
         transition={{ duration: 0.8, ease: "easeInOut" }}
       >

@@ -27,12 +27,12 @@ const NewsInner = () => {
     if (newsItem) {
       setImages(
         newsItem.Imgs?.map(
-          (img) => `${BASE_URL}uploads/news/${img.src.split("\\").pop()}`
+          (img) => `${BASE_URL}${img.src.split("\\").pop()}`
         ) || []
       );
       setVideos(
         newsItem.Videos?.map(
-          (vid) => `${BASE_URL}uploads/news/${vid.src.split("\\").pop()}`
+          (vid) => `${BASE_URL}${vid.src.split("\\").pop()}`
         ) || []
       );
     }

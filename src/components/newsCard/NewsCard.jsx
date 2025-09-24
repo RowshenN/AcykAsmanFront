@@ -11,14 +11,10 @@ const NewsCard = ({ news }) => {
   const { dil } = useContext(SebedimContext);
 
   const images =
-    news.Imgs?.map(
-      (img) => `${BASE_URL}uploads/news/${img.src.split("\\").pop()}`
-    ) || [];
+    news.Imgs?.map((img) => `${BASE_URL}${img.src.split("\\").pop()}`) || [];
 
   const videos =
-    news.Videos?.map(
-      (vid) => `${BASE_URL}uploads/news/${vid.src.split("\\").pop()}`
-    ) || [];
+    news.Videos?.map((vid) => `${BASE_URL}${vid.src.split("\\").pop()}`) || [];
 
   const hasImages = images.length > 0;
   const hasVideos = videos.length > 0;
@@ -59,13 +55,13 @@ const NewsCard = ({ news }) => {
 
         {/* text */}
         <div className="xs:mt-3 md:mt-6 dark:text-white w-full">
-          <h1 className="xs:mb-1 leading-tight md:mb-[10px] xs:text-[18px] md:text-[24px] font-[semibold] ">
+          <h1 className="xs:mb-1 line-clamp-2 leading-tight md:mb-[10px] xs:text-[18px] md:text-[24px] font-[semibold] ">
             {title}
           </h1>
           <div className="w-fit mb-3 bg-[#DBDBDB] rounded-[5px] py-[5px] px-[9px] ">
             <p className="text-[12px] font-[regular]">{date}</p>
           </div>
-          <p className="xs:text-[14px] xs:line-clamp-2 md:text-[18px] font-[regular]">
+          <p className="xs:text-[14px] line-clamp-2 md:text-[18px] font-[regular]">
             {text}
           </p>
         </div>

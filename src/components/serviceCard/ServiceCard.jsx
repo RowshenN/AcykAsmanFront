@@ -8,7 +8,7 @@ import { BASE_URL } from "../../utils/Axios";
 const ServiceCard = ({ service }) => {
   const { dil } = useContext(SebedimContext);
 
-  const base_url = `${BASE_URL}uploads/service/`;
+  const base_url = `${BASE_URL}`;
 
   const images =
     service.Imgs?.map((img) => `${base_url}${img.src.split("\\").pop()}`) || [];
@@ -44,20 +44,9 @@ const ServiceCard = ({ service }) => {
         </p>
       </div>
 
-      <div className="border border-border dark:border-borderDark rounded-[20px] xs:max-h-[250px] md:max-h-[360px] w-full relative">
+      <div className="border border-border dark:border-borderDark rounded-[20px] relative">
         {hasImages ? (
-          images.length > 1 ? (
-            <Carousel images={images} overlay={true} />
-          ) : (
-            <>
-              <img
-                src={images[0]}
-                alt={service.name_en || service.name_tm}
-                className="w-full xs:h-[250px] md:h-[360px] object-cover rounded-[20px]"
-              />
-              <div className="absolute inset-0 bg-black/30 rounded-[20px]"></div>
-            </>
-          )
+          <Carousel images={images} overlay={true} />
         ) : hasVideos ? (
           <>
             <div className="xs:h-[250px] md:h-[360px] ">
@@ -70,14 +59,14 @@ const ServiceCard = ({ service }) => {
 
       {/* text */}
       <div className="xs:mt-3 md:mt-6 dark:text-white w-full">
-        <h1 className="xs:mb-1 leading-tight md:mb-[10px] xs:text-[18px] md:text-[24px] font-[semibold] ">
+        <h1 className="xs:mb-1 line-clamp-2 leading-tight md:mb-[10px] xs:text-[18px] md:text-[24px] font-[semibold] ">
           {dil === "tm"
             ? service.name_tm
             : dil === "ru"
             ? service.name_ru
             : service.name_en}
         </h1>
-        <p className="xs:text-[14px] xs:line-clamp-2 md:text-[18px] font-[regular]">
+        <p className="xs:text-[14px] line-clamp-2 md:text-[18px] font-[regular]">
           {dil === "tm"
             ? service.text_tm
             : dil === "ru"

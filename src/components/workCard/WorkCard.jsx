@@ -5,15 +5,13 @@ import { SebedimContext } from "../../utils/Context";
 import { useContext } from "react";
 import { BASE_URL } from "../../utils/Axios";
 
-const base_url = `${BASE_URL}uploads/work/`;
+const base_url = `${BASE_URL}`;
 
 const WorkCard = ({ service }) => {
   const { dil } = useContext(SebedimContext);
 
   const images =
-    service.Imgs?.map(
-      (img) => `${BASE_URL}uploads/work/${img.src.split("\\").pop()}`
-    ) || [];
+    service.Imgs?.map((img) => `${BASE_URL}${img.src.split("\\").pop()}`) || [];
 
   const videos =
     service.Videos?.map((vid) => `${base_url}${vid.src.split("\\").pop()}`) ||
@@ -43,23 +41,14 @@ const WorkCard = ({ service }) => {
         </p>
       </div>
 
-      <div className="border border-border dark:border-borderDark rounded-[20px] xs:max-h-[70%] md:max-h-[360px] h-full w-full relative">
+      <div className="border border-border dark:border-borderDark rounded-[20px] relative">
         {hasImages ? (
-          images.length > 1 ? (
-            <Carousel images={images} />
-          ) : (
-            <>
-              <img
-                src={images[0]}
-                alt={service.name_en || service.name_tm}
-                className="w-full h-full object-cover rounded-[20px]"
-              />
-              <div className="absolute inset-0 bg-black/30 rounded-[20px]"></div>
-            </>
-          )
+          <Carousel images={images} overlay={true} />
         ) : hasVideos ? (
           <>
-            <VideoPlayer src={videos[0]} />
+            <div className="xs:h-[250px] md:h-[360px] ">
+              <VideoPlayer src={videos[0]} />
+            </div>
             <div className="absolute inset-0 bg-black/30 rounded-[20px]"></div>
           </>
         ) : null}
@@ -67,14 +56,14 @@ const WorkCard = ({ service }) => {
 
       {/* text */}
       <div className="xs:mt-3 md:mt-6 dark:text-white w-full">
-        <h1 className="xs:mb-1 leading-tight md:mb-[10px] xs:text-[18px] md:text-[24px] font-[semibold] ">
+        <h1 className="xs:mb-1 line-clamp-2 leading-tight md:mb-[10px] xs:text-[18px] md:text-[24px] font-[semibold] ">
           {dil === "tm"
             ? service.name_tm
             : dil === "ru"
             ? service.name_ru
             : service.name_en}
         </h1>
-        <p className="xs:text-[14px] xs:line-clamp-2 md:text-[18px] font-[regular]">
+        <p className="xs:text-[14px] line-clamp-2 md:text-[18px] font-[regular]">
           {dil === "tm"
             ? service.text_tm
             : dil === "ru"

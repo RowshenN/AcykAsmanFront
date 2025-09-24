@@ -122,9 +122,8 @@ const ServiceInner = () => {
   const hasImages = service.Imgs && service.Imgs.length > 0;
   const hasVideos = service.Videos && service.Videos.length > 0;
   const videos =
-    service.Videos?.map(
-      (vid) => `${BASE_URL}uploads/service/${vid.src.split("\\").pop()}`
-    ) || [];
+    service.Videos?.map((vid) => `${BASE_URL}${vid.src.split("\\").pop()}`) ||
+    [];
 
   return (
     <motion.div
@@ -204,9 +203,7 @@ const ServiceInner = () => {
                     className=" md:max-h-[80vh] rounded-[20px] h-full w-full relative"
                   >
                     <img
-                      src={`${BASE_URL}uploads/service/${img.src
-                        .split("\\")
-                        .pop()}`}
+                      src={`${BASE_URL}${img.src.split("\\").pop()}`}
                       alt={`carousel-${i}`}
                       className="w-full xs:min-h-[300px] rounded-[20px] md:min-h-full h-full object-cover"
                     />

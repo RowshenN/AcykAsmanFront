@@ -5,16 +5,14 @@ import { SebedimContext } from "../../utils/Context";
 import { useContext } from "react";
 import { BASE_URL } from "../../utils/Axios";
 
-const base_url = `${BASE_URL}uploads/work/`;
+const base_url = `${BASE_URL}`;
 
 const LongWorkCard = ({ service }) => {
   const { dil } = useContext(SebedimContext);
 
   // Prepare images
   const images =
-    service.Imgs?.map(
-      (img) => `${BASE_URL}uploads/work/${img.src.split("\\").pop()}`
-    ) || [];
+    service.Imgs?.map((img) => `${BASE_URL}${img.src.split("\\").pop()}`) || [];
 
   // Prepare videos
   const videos =

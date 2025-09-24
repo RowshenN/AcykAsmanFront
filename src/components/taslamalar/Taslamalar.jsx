@@ -40,7 +40,7 @@ const Taslamalar = () => {
   };
 
   return (
-    <div className="w-full mb-[42px]">
+    <div className="w-full mb-[60px]">
       {/* Header */}
       <motion.div
         className="w-full xs:mb-5 md:mb-[34px] flex items-center justify-between"
@@ -83,7 +83,7 @@ const Taslamalar = () => {
       </motion.div>
 
       {/* Cards */}
-      <div className="w-full xs:mb-9 md:mb-[44px]">
+      <div className="w-full xs:mb-9 md:mb-[60px]">
         <AnimatePresence mode="wait">
           {grid ? (
             <motion.div
@@ -152,7 +152,7 @@ const Taslamalar = () => {
       </div>
 
       {/* Button */}
-      <Link to={"/services"}>
+      {/* <Link to={"/services"}>
         <motion.div
           className="w-full flex items-center justify-center"
           variants={containerVariants}
@@ -172,7 +172,7 @@ const Taslamalar = () => {
               : "See All"}
           </motion.button>
         </motion.div>
-      </Link>
+      </Link> */}
     </div>
   );
 };

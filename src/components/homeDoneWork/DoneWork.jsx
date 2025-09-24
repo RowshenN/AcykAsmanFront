@@ -59,9 +59,7 @@ const DoneWork = () => {
   const text =
     dil === "tm" ? work.text_tm : dil === "ru" ? work.text_ru : work.text_en;
 
-  const imageUrl = `${BASE_URL}uploads/work/${work.Imgs[0].src
-    .split("\\")
-    .pop()}`;
+  const imageUrl = `${BASE_URL}${work.Imgs[0].src.split("\\").pop()}`;
 
   return (
     <motion.div
