@@ -109,7 +109,7 @@ const HomeBanner = () => {
             className="relative w-full xs:h-[70vh] md:h-[90vh] flex-shrink-0 rounded-[28px] overflow-hidden"
           >
             <img
-              src={`${BASE_URL}uploads/banner/${banner?.img.split("\\").pop()}`}
+              src={`${BASE_URL}./${banner?.img.split("\\").pop()}`}
               alt={`slide-${i}`}
               className="w-full xs:h-[70vh] md:h-[90vh] object-cover"
             />

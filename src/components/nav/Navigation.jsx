@@ -35,7 +35,7 @@ const Navigation = () => {
   const randomWork =
     worksWithVideos[Math.floor(Math.random() * worksWithVideos.length)];
   const randomVideoSrc = randomWork
-    ? `${BASE_URL}uploads/work/${randomWork.Videos[0].src.split("\\").pop()}`
+    ? `${BASE_URL}${randomWork.Videos[0].src.split("\\").pop()}`
     : null;
 
   useEffect(() => {
